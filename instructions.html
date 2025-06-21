@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instructions - Generative AI and Social Media</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #1a1a2e;
+      padding: 10px;
+      width: 100%;
+    }
+
+    .navbar {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li a {
+      text-decoration: none;
+      color: #33ffcc;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .navbar li a:hover {
+      color: #ff00ff;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #1a1a2e;
+      padding: 20px;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #33ffcc;
+      padding: 10px 0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      color: #ff00ff;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 40px;
+    }
+
+    h1, h2 {
+      color: #00ffff;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <a href="#vscode">VS Code</a>
+      <a href="#cursor">Cursor</a>
+      <a href="#chatgpt">ChatGPT</a>
+      <a href="#elevenlabs">ElevenLabs</a>
+    </div>
+
+    <div class="content">
+      <h1>Setup Instructions</h1>
+
+      <h2 id="vscode">VS Code</h2>
+      <ul>
+        <li>Download and install VS Code from the official website</li>
+        <li>Install Python from python.org</li>
+        <li>Install Node.js and npm to enable React development</li>
+        <li>Install the Python extension in VS Code</li>
+        <li>Install the JavaScript/TypeScript and React extensions</li>
+        <li>Set up terminal and interpreter paths correctly</li>
+        <li>Enable Git integration if desired</li>
+        <li>Install GitHub Copilot if you have a ChatGPT Pro account</li>
+      </ul>
+
+      <h2 id="cursor">Cursor</h2>
+      <ul>
+        <li>Download Cursor from the official site (cursor.sh)</li>
+        <li>Register with your .edu email for free student access</li>
+        <li>Follow install instructions based on your OS</li>
+        <li>Sign in and connect GitHub/ChatGPT if prompted</li>
+      </ul>
+
+      <h2 id="chatgpt">ChatGPT</h2>
+      <ul>
+        <li>Go to openai.com and create an account</li>
+        <li>Verify your email and phone number</li>
+        <li>Upgrade to ChatGPT Plus if you want access to GPT-4 and tools</li>
+      </ul>
+
+      <h2 id="elevenlabs">ElevenLabs</h2>
+      <ul>
+        <li>Go to elevenlabs.io</li>
+        <li>Create a free account</li>
+        <li>Verify your email address</li>
+        <li>Get your API key from the dashboard (needed for assignments)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
