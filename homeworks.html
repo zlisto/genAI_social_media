@@ -16,12 +16,42 @@
   </nav>
 
   <main>
-    <h1>Homeworks</h1>
-    <ul>
-      <li><a href="hw1.html">Homework 1: Text Bot with OpenAI API</a></li>
-      <li><a href="hw2.html">Homework 2: Meme Generator</a></li>
-      <li><a href="hw3.html">Homework 3: Twitter Persona Analyzer</a></li>
-    </ul>
+    <h1 class="schedule-header">Homework Assignments</h1>
+    <p class="schedule-note"><em>*Links and deadlines will be updated during the course.*</em></p>
+
+    <div class="accordion-container">
+      <div class="accordion">
+        <button class="accordion-btn"><a href="hw1.html">Homework 1: Coding Basics and Text Analysis</a></button>
+        <div class="panel">
+          <p>Get started with Python coding and basic text analysis. You'll write your first scripts and learn to process simple text data.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="hw2.html">Homework 2: Vibe Coding and Image Analysis</a></button>
+        <div class="panel">
+          <p>Apply vibe coding to social media content and use AI to analyze images. You'll build your first notebook-based prototype.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="hw3.html">Homework 3: React App</a></button>
+        <div class="panel">
+          <p>Build your own frontend app using React. This will serve as a starter template for your final project.</p>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <script>
+    const acc = document.querySelectorAll(".accordion-btn");
+    acc.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
 </body>
 </html>

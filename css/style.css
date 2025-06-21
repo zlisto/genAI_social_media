@@ -2,11 +2,12 @@
 
 body {
   background-color: #0f0f23;
-  color: #ff66cc;
+  color: #33ffcc;  /* ← was #ff66cc */
   font-family: 'Rajdhani', sans-serif;
   margin: 0;
   padding: 0;
 }
+
 
 nav {
   background-color: #1a1a2e;
@@ -24,11 +25,12 @@ nav {
 
 .navbar li a {
   text-decoration: none;
-  color: #ff66cc;
+  color: #33ffcc;  /* ← was #ff66cc */
   font-weight: bold;
   transition: all 0.3s ease;
-  text-shadow: 0 0 4px #ff66cc;
+  text-shadow: 0 0 4px #33ffcc;  /* subtle teal glow */
 }
+
 
 .navbar li a:hover {
   color: #ffffff;
@@ -42,15 +44,16 @@ main {
 }
 
 h1, h2 {
-  color: #ff66cc;
+  color: #33ffcc;
   text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff1ab3;
 }
 
 p, li, ul {
   font-size: 17px;
   line-height: 1.6;
-  color: #ff66cc;
+  color: #33ffcc;  /* ← was #ff66cc or #ff99cc */
 }
+
 
 ul {
   padding-left: 20px;
@@ -147,7 +150,7 @@ img:hover {
 
 .schedule-header {
   margin-top: 40px;
-  color: #ff66cc;
+  color: #33ffcc;
   text-align: center;
 }
 
@@ -156,5 +159,29 @@ img:hover {
   max-width: 600px;
   margin: 0 auto 30px;
   text-align: center;
-  color: #ff99cc;
+  color: #33ffcc;  /* ← was #ff99cc */
 }
+
+.assignment-box {
+  background-color: #1a1a2e;
+  border: 1px solid #ff66cc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px 0;
+  box-shadow: 0 0 10px #ff1ab3;
+}
+
+.assignment-box h2 {
+  color: #ff66cc;
+  margin-bottom: 10px;
+}
+
+.assignment-box ul {
+  padding-left: 20px;
+  color: #33ffcc;  /* ← was #ff99cc */
+}
+
+.assignment-box p {
+  color: #33ffcc;  /* ← was #ff99cc */
+}
+
