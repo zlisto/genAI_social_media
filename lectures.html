@@ -16,14 +16,98 @@
   </nav>
 
   <main>
-    <h1>Lecture Materials</h1>
-    <ul>
-      <li><a href="slides/Lecture1_Intro.pdf" target="_blank">Lecture 1: Introduction to Generative AI</a></li>
-      <li><a href="https://github.com/your-username/lecture2-vibecode" target="_blank">Lecture 2: Text Generation with OpenAI</a></li>
-      <li><a href="https://github.com/your-username/lecture3-vibecode" target="_blank">Lecture 3: Image Generation with DALL·E</a></li>
-      <li><a href="https://github.com/your-username/lecture4-vibecode" target="_blank">Lecture 4: Image Analysis and Object Detection</a></li>
-      <li><a href="https://github.com/your-username/lecture5-vibecode" target="_blank">Lecture 5: Building AI Web Apps with Flask</a></li>
-    </ul>
+    <h1 class="schedule-header">Class Schedule</h1>
+    <p class="schedule-note"><em>*This schedule may adapt to breaking developments in generative AI and social media.*</em></p>
+
+    <div class="accordion-container">
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 1: Social Media Sentiment and Vibe Coding</a></button>
+        <div class="panel">
+          <p>Basics of social media data, generative AI, and vibe coding. Build a simple web app to measure tweet sentiment.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 2: Persuasion + Project Ideation</a></button>
+        <div class="panel">
+          <p>Generate persuasive content with AI. Build a web app for targeted messaging and start your project idea.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 3: Image Analysis</a></button>
+        <div class="panel">
+          <p>AI-based image analysis. Build a web app that creates travel blogs from user photos.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 4: Chat Bots</a></button>
+        <div class="panel">
+          <p>Clone a person from social media and chat with them via a custom AI web app.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 5: Conversational Agents</a></button>
+        <div class="panel">
+          <p>Use voice cloning AI to build an interactive conversational agent.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 6: AI Assistant</a></button>
+        <div class="panel">
+          <p>Learn about modern AI chat tools. Build an assistant app that can converse and assist with tasks.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 7: Retrieval-Augmented Generation (RAG)</a></button>
+        <div class="panel">
+          <p>Create a RAG-based assistant that can search and summarize uploaded documents.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 8: Hosting Apps</a></button>
+        <div class="panel">
+          <p>Deploy your app online using GitHub Pages and hosting platforms like Render.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 9: Monetization with Stripe</a></button>
+        <div class="panel">
+          <p>Integrate Stripe to accept payments in your web apps.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 10: Databases</a></button>
+        <div class="panel">
+          <p>Set up a database to persist user and app data.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn"><a href="#">Lecture 11: Final Presentations</a></button>
+        <div class="panel">
+          <p>Demo day! Present your AI-powered web apps and get feedback.</p>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <script>
+    const acc = document.querySelectorAll(".accordion-btn");
+    acc.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+
 body {
   background-color: #0f0f23;
-  color: #33ffcc;
-  font-family: "Courier New", Courier, monospace;
+  color: #ff66cc;
+  font-family: 'Rajdhani', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -9,6 +11,7 @@ body {
 nav {
   background-color: #1a1a2e;
   padding: 10px;
+  width: 100%;
 }
 
 .navbar {
@@ -21,19 +24,137 @@ nav {
 
 .navbar li a {
   text-decoration: none;
-  color: #33ffcc;
+  color: #ff66cc;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 4px #ff66cc;
 }
 
 .navbar li a:hover {
-  color: #ff00ff;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff1ab3, 0 0 30px #ff1ab3;
+  transform: scale(1.05);
 }
 
 main {
   padding: 40px;
+  text-align: center;
 }
 
-h1 {
-  color: #00ffff;
+h1, h2 {
+  color: #ff66cc;
+  text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff1ab3;
+}
+
+p, li, ul {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #ff66cc;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+img {
+  margin-bottom: 30px;
+  box-shadow: 0 0 15px #ff1ab3;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px #ff1ab3;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #1a1a2e;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: #ff66cc;
+  padding: 10px 0;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 3px #ff66cc;
+}
+
+.sidebar a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff1ab3;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 40px;
+}
+.accordion-container {
+  margin: 40px auto;
+  max-width: 700px;
+}
+
+.accordion {
+  background-color: #1a1a2e;
+  border: 1px solid #ff66cc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.accordion-btn {
+  background-color: transparent;
+  color: #ff66cc;
+  font-family: 'Rajdhani', sans-serif;
+  padding: 15px;
+  text-align: left;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  cursor: pointer;
+  text-shadow: 0 0 4px #ff66cc;
+  transition: background 0.2s ease;
+}
+
+.accordion-btn:hover {
+  background-color: #2c2c3e;
+  text-shadow: 0 0 8px #ff1ab3;
+}
+
+.panel {
+  padding: 0 15px 15px;
+  background-color: #0f0f23;
+  display: none;
+  color: #ff99cc;
+  font-size: 16px;
+}
+
+.schedule-header {
+  margin-top: 40px;
+  color: #ff66cc;
+  text-align: center;
+}
+
+.schedule-note {
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  text-align: center;
+  color: #ff99cc;
 }
