@@ -185,3 +185,8 @@ img:hover {
   color: #33ffcc;  /* ← was #ff99cc */
 }
 
+.colab-link img {
+  height: 20px;
+  vertical-align: middle;
+}
+

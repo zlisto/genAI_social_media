@@ -1,0 +1,27 @@
+pandas
+numpy
+seaborn
+matplotlib
+networkx==3.0
+transformers
+wordcloud==1.9.3
+scikit-learn
+openai
+wandb
+requests_oauthlib
+Pillow
+Flask
+pymongo
+gunicorn
+requests
+opencv-python-headless  # For cv2, headless version for non-GUI environments like Heroku
+PyPDF2
+python-docx  # For `docx` module
+elevenlabs  # For ElevenLabs API usage
+python-dotenv
+fpdf
+bs4
+youtube-transcript-api
+tqdm
+ffmpeg-python
+youtube-transcript-api  #for downloading YouTube transcripts
