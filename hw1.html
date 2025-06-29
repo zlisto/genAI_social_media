@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <title>Homework 1 - Generative AI and Social Media</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .assignment-box {
+      text-align: left;
+      text-align-last: left;
+    }
+    .assignment-box p {
+      text-align: justify;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -16,26 +25,49 @@
   </nav>
 
   <main style="max-width: 700px; margin: auto;">
-    <h1 class="schedule-header">Homework 1: Text-to-Image Instagram Caption Generator</h1>
+    <h1 class="schedule-header">Homework 1: Fashion Article Generator</h1>
 
     <div class="assignment-box">
       <h2>Instructions</h2>
-      <p>
-        Create a <strong>Streamlit web app</strong> that allows a user to:
-      </p>
-      <ul>
-        <li>Upload an image (e.g., a travel photo, product photo, selfie, etc.)</li>
-        <li>Enter a short text description of the content creator (e.g., their niche, tone, interests)</li>
-        <li>Use an AI model to generate an Instagram caption based on both the image and the creator's info</li>
-        <li>Display the final caption underneath the image</li>
-      </ul>
-      <p>
-        You may use OpenAI or any other image-to-text or captioning model. The app should look clean and easy to use.
-      </p>
+      <ol>
+        <li>
+          <p>Create a <strong>Streamlit web app</strong> that allows a user to:</p>
+          <ol>
+            <li>Home page: Upload multiple images</li>
+            <li>Article page: Enter a short text description of the article topic 
+              (e.g., author's tone, speaking style, theme of photos, etc) and use AI 
+              to generate a nicely formatted HTML blog post based on both the images 
+              and the text description</li>
+            <li>Items page: Select from the uploaded images and use AI to generate 
+              a nicely formatted HTML table of the name, description, and 
+              estimated price of the items in the images</li>
+          </ol>
+        </li>
+        <li>
+          <p>Your app should import the GenAI class from the genai.py file that is 
+            provided: <a href="scripts/genai.py">genai.py</a>. </p>
+        </li>
+        <li>
+          <p>The user should only have to upload the images once on the homepage 
+            and use the same images for both the article and items pages.
+          </p>
+        </li>
+        <li>
+          <p>The app should look clean and be easy to use.</p>
+        </li>
+        <li>
+          <p>Your submission should include the following files:</p>
+          <ol>
+            <li> app.py  - the main app file</li>
+            <li>utils.py - a file that contains helper functions for the app</li>
+            <li>genai.py - a file that contains the GenAI class</li>
+            </ol>
+        </li>
+      </ol>
     </div>
 
     <div class="assignment-box">
-      <h2>Grading Breakdown (40 Points)</h2>
+      <h2>Grading Breakdown (100 Points)</h2>
       <table class="grading-table">
         <thead>
           <tr>
@@ -48,26 +80,52 @@
           <tr>
             <td>App Functionality</td>
             <td>10</td>
-            <td>Streamlit app runs smoothly without crashes; layout is clean and readable</td>
+            <td>Streamlit app runs smoothly without errors or crashes</td>
           </tr>
           <tr>
-            <td>Image Upload</td>
-            <td>10</td>
-            <td>User can upload and preview image, which is processed by the app</td>
+            <td>Image Upload (Home Page)</td>
+            <td>15</td>
+            <td>User can upload and preview multiple images on the homepage</td>
           </tr>
           <tr>
-            <td>Creator Context Input</td>
+            <td>State Persistence</td>
             <td>10</td>
-            <td>Textbox for influencer background/niche/tone; info passed to AI model</td>
+            <td>Uploaded images persist across all pages using session state</td>
           </tr>
           <tr>
-            <td>AI Captioning</td>
+            <td>Article Page – Input</td>
             <td>10</td>
-            <td>Caption clearly uses both image content and user-provided creator info</td>
+            <td>Text input for style description is clearly presented</td>
+          </tr>
+          <tr>
+            <td>Article Page – Output</td>
+            <td>15</td>
+            <td>Blog article is generated using uploaded images and user input; HTML is properly displayed</td>
+          </tr>
+          <tr>
+            <td>Items Page – Image Selection</td>
+            <td>10</td>
+            <td>User can select one image from the uploaded set to analyze on the Items page</td>
+          </tr>
+          <tr>
+            <td>Items Page – Table Output</td>
+            <td>10</td>
+            <td>HTML table of item descriptions and prices is generated and displayed correctly</td>
+          </tr>
+          <tr>
+            <td>Code Structure</td>
+            <td>10</td>
+            <td>App uses helper functions from <code>utils.py</code> for blog writing and item table generation</td>
+          </tr>
+          <tr>
+            <td>Visual Presentation</td>
+            <td>10</td>
+            <td>Interface is clean, organized, and easy to navigate across pages</td>
           </tr>
         </tbody>
       </table>
     </div>
+    
   </main>
 </body>
 </html>
