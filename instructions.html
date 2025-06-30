@@ -19,6 +19,7 @@
   <div class="wrapper">
     <div class="sidebar">
       <a href="#cursor">Cursor</a>
+      <a href="#streamlit">Streamlit</a>
       <a href="#chatgpt">ChatGPT</a>
       <a href="#elevenlabs">ElevenLabs</a>
     </div>
@@ -68,6 +69,27 @@
     </ul>
   </li>
   <li>Restart Cursor to apply the new interpreter</li>
+</ul>
+
+<h2 id="streamlit">Streamlit Apps</h2>
+<p>Follow these steps to buid and run a streamlit app in Cursor:</p>
+<ul>
+  <li>In the Cursor agent chat, type in or copy and paste the AI prompt for the streamlit app you 
+    want to run and let it write the code for you.   </li>
+    <ul>
+      <li>Make sure it writes a file called app.py. </li>
+  </ul>
+  
+  <li>In the Cursor agent chat, ask it to write the requirements file for the app.  
+    <ul>
+      <li>Make sure it write a file called requirements.txt. </li>
+    </ul>
+      
+  <li>In the terminal, run the command <code>pip install -r requirements.txt</code> to install the dependencies.</li>
+  <li>In the terminal, run the command <code>streamlit run app.py</code> to run the app.</li>
+  <ul>
+    <li>The app should run in your web browser at <code>http://localhost:8501</code></li>
+
 </ul>
 
       
