@@ -8,8 +8,13 @@ I want to create a Streamlit app called "VoxOver: AI Narration Studio" that lets
 7. Let users view and download the final video with voiceover
 
 I already have the following utility functions in my utils.py file:
-- generate_voiceover_text(video_path, instructions): Analyzes a video and generates appropriate voiceover text based on user instructions
-- generate_voiceover_audio(voiceover_text, file_path, voice_name='nova', speed=1.0): Converts text to speech and saves as audio file
+- generate_voiceover_text(video_path, 
+                        instructions): Analyzes a video and generates appropriate voiceover text based on user instructions
+- generate_voiceover_audio_elevenlabs(text, 
+                                        file_path,  
+                                        model_id="eleven_multilingual_v2",    
+                                        voice_id="dR1Ptm3rjBUIbHiaywdJ",
+                                        speed=1.0): Converts text to speech and saves as audio file
 - merge_video_with_audio(video_path, audio_path, merged_path, video_volume=1.0, audio_volume=1.0): Combines video with audio file, allowing volume control for both original audio and added voiceover
 
 Please create a complete Streamlit app (app.py) that uses these functions to create a user-friendly interface with:
