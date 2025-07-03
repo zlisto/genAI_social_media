@@ -13,6 +13,7 @@
       <li><a href="instructions.html">Instructions</a></li>
       <li><a href="lectures.html">Lectures</a></li>
       <li><a href="homeworks.html">Homeworks</a></li>
+      <li><a href="#github">GitHub</a></li>
     </ul>
   </nav>
 
@@ -22,6 +23,7 @@
       <a href="#streamlit">Streamlit</a>
       <a href="#chatgpt">ChatGPT</a>
       <a href="#elevenlabs">ElevenLabs</a>
+      <a href="#github">GitHub</a>
     </div>
 
     <div class="content">
@@ -45,7 +47,7 @@
     <ul>
       <li>Go to <a href="https://www.python.org/downloads/windows/" target="_blank">python.org/downloads/windows</a></li>
       <li>Download and run the latest installer</li>
-      <li><strong>Important:</strong> Check the box that says <code>Add Python to PATH</code> before clicking “Install Now”</li>
+      <li><strong>Important:</strong> Check the box that says <code>Add Python to PATH</code> before clicking "Install Now"</li>
     </ul>
   </li>
   <li><strong>Mac:</strong>
@@ -62,7 +64,7 @@
   <li>Open Cursor</li>
   <li>Click <strong>View</strong> in the top menu, then select <strong>Command Palette...</strong></li>
   <li>In the search bar that appears, type <code>Python: Select Interpreter</code> and press Enter</li>
-  <li>Choose the Python version from the list, or click “Enter interpreter path” to manually locate it:
+  <li>Choose the Python version from the list, or click "Enter interpreter path" to manually locate it:
     <ul>
       <li><strong>Windows example:</strong> <code>C:\Users\YourName\AppData\Local\Programs\Python\Python3x\python.exe</code></li>
       <li><strong>Mac example:</strong> <code>/usr/local/bin/python3</code> (you can find it by running <code>which python3</code> in Terminal)</li>
@@ -106,6 +108,44 @@
         <li>Create a free account</li>
         <li>Verify your email address</li>
         <li>Get your API key from the dashboard (needed for assignments)</li>
+      </ul>
+
+      <h2 id="github">GitHub</h2>
+      <ul>
+        <li><strong>Create a GitHub Account:</strong>
+          <ul>
+            <li>Go to <a href="https://github.com/" target="_blank">https://github.com/</a></li>
+            <li>Click <strong>Sign up</strong> and follow the instructions to create a free account.</li>
+            <li>Verify your email address.</li>
+          </ul>
+        </li>
+        <li><strong>Download and Install Git:</strong>
+          <ul>
+            <li>Go to <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a></li>
+            <li>Download the installer for your operating system (Windows/Mac).</li>
+            <li>Run the installer and follow the setup instructions.</li>
+          </ul>
+        </li>
+        <li><strong>Integrate GitHub with Cursor:</strong>
+          <ul>
+            <li>Open Cursor.</li>
+            <li>Open the integrated terminal in Cursor (<code>Ctrl+`</code> or <code>View &gt; Terminal</code>).</li>
+            <li>Set your Git username and email (replace with your info):
+              <ul>
+                <li><code>git config --global user.name "Your Name"</code></li>
+                <li><code>git config --global user.email "your@email.com"</code></li>
+              </ul>
+            </li>
+            <li>Authenticate with GitHub:
+              <ul>
+                <li>In the terminal, run <code>git login</code> or try to clone a repo (e.g., <code>git clone https://github.com/your-username/your-repo.git</code>).</li>
+                <li>Follow the prompts to sign in with your GitHub account (you may need to generate a personal access token from your GitHub account settings).</li>
+              </ul>
+            </li>
+            <li>To check your setup, run <code>git --version</code> and <code>git config --list</code> in the terminal.</li>
+            <li>Now you can use Git commands in Cursor to manage your code (clone, commit, push, pull, etc.).</li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
