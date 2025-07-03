@@ -1,0 +1,24 @@
+I want to create a Streamlit app called "VoxOver: AI Narration Studio" that lets users upload videos and generate AI voiceovers for them. The app should have these key features:
+1. Allow users to upload video files
+2. Let users provide instructions for the style/content of voiceover
+3. Generate voiceover text based on video content and instructions
+4. Convert the text to speech using various AI voices
+5. Merge the speech audio with the original video
+6. Allow adjusting both the original video volume and voiceover volume
+7. Let users view and download the final video with voiceover
+
+I already have the following utility functions in my utils.py file:
+- generate_voiceover_text(video_path, instructions): Analyzes a video and generates appropriate voiceover text based on user instructions
+- generate_voiceover_audio(voiceover_text, file_path, voice_name='nova', speed=1.0): Converts text to speech and saves as audio file
+- merge_video_with_audio(video_path, audio_path, merged_path, video_volume=1.0, audio_volume=1.0): Combines video with audio file, allowing volume control for both original audio and added voiceover
+
+Please create a complete Streamlit app (app.py) that uses these functions to create a user-friendly interface with:
+- File upload functionality
+- Text area for instructions
+- Display of generated voiceover text with ability to edit
+- Volume sliders for both original video audio and voiceover
+- Tabs to show original and processed videos
+- Proper handling of temporary files and error conditions
+- Clear instructions for users
+
+The app should maintain state between interactions and provide a clean, professional interface.
