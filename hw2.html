@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 1 - Generative AI and Social Media</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .assignment-box {
+      text-align: left;
+      text-align-last: left;
+    }
+    .assignment-box p {
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+    </ul>
+  </nav>
+
+  <main style="max-width: 700px; margin: auto;">
+    <h1 class="schedule-header">Homework 2: Persona Reaction Generator</h1>
+
+    <div class="assignment-box">
+      <h2>Instructions</h2>
+      <ol>
+        <li>
+          <p>Create a <strong>Streamlit web app</strong> that allows a user to:</p>
+          <ol>
+            <li>Home page: Input a name and text about the persona in two input boxes
+                and then click a button to create the persona.  This should save the persona
+            in the app.</li>
+            <li>Reaction page: Choose one of your personas from a dropdown menu.  Then
+                upload an image and click a button to have the persona react to it, then show the reaction
+                text in a box below.  Make sure the image is displayed in the app
+                with width 400.</li>
+          </ol>
+        </li>
+        <li>
+          <p>Your app should either import the GenAI class from the genai.py file that is 
+            provided: <a href="scripts/genai.py" target="_blank">genai.py</a> or build your backend in n8n. 
+        </p>
+        </li>
+        <li>
+
+        </li>
+        <li>
+          <p>The app should look clean and be easy to use.</p>
+        </li>
+        <li>
+          <p>Your submission should include the following files:</p>
+          <ol>
+            <li> app.py  - the main app file</li>
+            <li> If you build your backend in n8n, you should include the n8n workflow file (JSON file).</li>
+            <li> If you build your backend in python, include any additional python files you used.</li>
+            </ol>
+        </li>
+      </ol>
+    </div>
+
+    <div class="assignment-box">
+        <h2>Grading Breakdown (100 Points)</h2>
+        <table class="grading-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Points</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>App Functionality</td>
+              <td>10</td>
+              <td>App runs without crashes or major bugs; all pages are accessible</td>
+            </tr>
+            <tr>
+              <td>Persona Creation (Home Page)</td>
+              <td>15</td>
+              <td>User can input a name and text description to define a persona and save it</td>
+            </tr>
+            <tr>
+              <td>Persona Storage</td>
+              <td>10</td>
+              <td>Created personas are stored correctly and accessible from the dropdown</td>
+            </tr>
+            <tr>
+              <td>Reaction Page – Image Upload</td>
+              <td>10</td>
+              <td>User can upload an image and see it displayed at width 400</td>
+            </tr>
+            <tr>
+              <td>Reaction Page – Persona Output</td>
+              <td>15</td>
+              <td>Persona reacts to the uploaded image and the reaction is clearly shown</td>
+            </tr>
+            <tr>
+              <td>Backend Integration</td>
+              <td>15</td>
+              <td>App uses either the provided <code>GenAI</code> class or a working n8n backend</td>
+            </tr>
+            <tr>
+              <td>Interface and Design</td>
+              <td>10</td>
+              <td>App layout is clean, intuitive, and visually organized</td>
+            </tr>
+            <tr>
+              <td>Code Quality</td>
+              <td>10</td>
+              <td>Code is readable, modular, and well-documented; uses appropriate helper functions</td>
+            </tr>
+            <tr>
+              <td>Submission Completeness</td>
+              <td>5</td>
+              <td>All required files (e.g. app.py, GenAI/n8n workflow, others) are submitted properly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    
+  </main>
+</body>
+</html>
