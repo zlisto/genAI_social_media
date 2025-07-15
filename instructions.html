@@ -13,7 +13,6 @@
       <li><a href="instructions.html">Instructions</a></li>
       <li><a href="lectures.html">Lectures</a></li>
       <li><a href="homeworks.html">Homeworks</a></li>
-      <li><a href="#github">GitHub</a></li>
     </ul>
   </nav>
 
@@ -25,76 +24,76 @@
       <a href="#elevenlabs">ElevenLabs</a>
       <a href="#n8n">n8n</a>
       <a href="#github">GitHub</a>
+      <a href="#react">React + Node.js</a>
+      <a href="#claude">Claude</a>
     </div>
+    
 
     <div class="content">
       <h1>Setup Instructions</h1>
-
-
       <h2 id="cursor">Cursor</h2>
-<ul>
-  <li>Sign up for Cursor using your <code>.edu</code> email for free student access at 
-    <a href="https://www.cursor.com" target="_blank">https://www.cursor.com</a> by 
-    clicking the <strong>Sign in</strong> button on the top right corner of the website 
-    and then signing up with your <code>.edu</code> email.
-  <li>Download <strong>Cursor</strong> by clicking the <strong>Download</strong> 
-    button on the <a href="https://www.cursor.com" target="_blank">https://www.cursor.com</a> website</li>
-  <li>Open the Cursor installer and follow the instructions to install Cursor</li>
-</ul>
+        <ul>
+          <li>Sign up for Cursor using your <code>.edu</code> email for free student access at 
+            <a href="https://www.cursor.com" target="_blank">https://www.cursor.com</a> by 
+            clicking the <strong>Sign in</strong> button on the top right corner of the website 
+            and then signing up with your <code>.edu</code> email.
+          <li>Download <strong>Cursor</strong> by clicking the <strong>Download</strong> 
+            button on the <a href="https://www.cursor.com" target="_blank">https://www.cursor.com</a> website</li>
+          <li>Open the Cursor installer and follow the instructions to install Cursor</li>
+        </ul>
 
-<h3>Install Python</h3>
-<ul>
-  <li><strong>Windows:</strong> 
-    <ul>
-      <li>Go to <a href="https://www.python.org/downloads/windows/" target="_blank">python.org/downloads/windows</a></li>
-      <li>Download and run the latest installer</li>
-      <li><strong>Important:</strong> Check the box that says <code>Add Python to PATH</code> before clicking "Install Now"</li>
-    </ul>
-  </li>
-  <li><strong>Mac:</strong>
-    <ul>
-      <li>Go to <a href="https://www.python.org/downloads/mac-osx/" target="_blank">python.org/downloads/mac-osx</a></li>
-      <li>Download the latest macOS <code>.pkg</code> installer</li>
-      <li>Open the installer and follow the installation steps</li>
-    </ul>
-  </li>
-</ul>
+        <h3>Install Python</h3>
+        <ul>
+          <li><strong>Windows:</strong> 
+            <ul>
+              <li>Go to <a href="https://www.python.org/downloads/windows/" target="_blank">python.org/downloads/windows</a></li>
+              <li>Download and run the latest installer</li>
+              <li><strong>Important:</strong> Check the box that says <code>Add Python to PATH</code> before clicking "Install Now"</li>
+            </ul>
+          </li>
+          <li><strong>Mac:</strong>
+            <ul>
+              <li>Go to <a href="https://www.python.org/downloads/mac-osx/" target="_blank">python.org/downloads/mac-osx</a></li>
+              <li>Download the latest macOS <code>.pkg</code> installer</li>
+              <li>Open the installer and follow the installation steps</li>
+            </ul>
+          </li>
+        </ul>
 
-<h3>Connect Python to Cursor</h3>
-<ul>
-  <li>Open Cursor</li>
-  <li>Click <strong>View</strong> in the top menu, then select <strong>Command Palette...</strong></li>
-  <li>In the search bar that appears, type <code>Python: Select Interpreter</code> and press Enter</li>
-  <li>Choose the Python version from the list, or click "Enter interpreter path" to manually locate it:
-    <ul>
-      <li><strong>Windows example:</strong> <code>C:\Users\YourName\AppData\Local\Programs\Python\Python3x\python.exe</code></li>
-      <li><strong>Mac example:</strong> <code>/usr/local/bin/python3</code> (you can find it by running <code>which python3</code> in Terminal)</li>
-    </ul>
-  </li>
-  <li>Restart Cursor to apply the new interpreter</li>
-</ul>
+        <h3>Connect Python to Cursor</h3>
+        <ul>
+          <li>Open Cursor</li>
+          <li>Click <strong>View</strong> in the top menu, then select <strong>Command Palette...</strong></li>
+          <li>In the search bar that appears, type <code>Python: Select Interpreter</code> and press Enter</li>
+          <li>Choose the Python version from the list, or click "Enter interpreter path" to manually locate it:
+            <ul>
+              <li><strong>Windows example:</strong> <code>C:\Users\YourName\AppData\Local\Programs\Python\Python3x\python.exe</code></li>
+              <li><strong>Mac example:</strong> <code>/usr/local/bin/python3</code> (you can find it by running <code>which python3</code> in Terminal)</li>
+            </ul>
+          </li>
+          <li>Restart Cursor to apply the new interpreter</li>
+        </ul>
 
-<h2 id="streamlit">Streamlit Apps</h2>
-<p>Follow these steps to buid and run a streamlit app in Cursor:</p>
-<ul>
-  <li>In the Cursor agent chat, type in or copy and paste the AI prompt for the streamlit app you 
-    want to run and let it write the code for you.   </li>
-    <ul>
-      <li>Make sure it writes a file called app.py. </li>
-  </ul>
-  
-  <li>In the Cursor agent chat, ask it to write the requirements file for the app.  
-    <ul>
-      <li>Make sure it write a file called requirements.txt. </li>
-    </ul>
-      
-  <li>In the terminal, run the command <code>pip install -r requirements.txt</code> to install the dependencies.</li>
-  <li>In the terminal, run the command <code>streamlit run app.py</code> to run the app.</li>
-  <ul>
-    <li>The app should run in your web browser at <code>http://localhost:8501</code></li>
+      <h2 id="streamlit">Streamlit Apps</h2>
+      <p>Follow these steps to buid and run a streamlit app in Cursor:</p>
+      <ul>
+        <li>In the Cursor agent chat, type in or copy and paste the AI prompt for the streamlit app you 
+          want to run and let it write the code for you.   </li>
+          <ul>
+            <li>Make sure it writes a file called app.py. </li>
+        </ul>
+        
+        <li>In the Cursor agent chat, ask it to write the requirements file for the app.  
+          <ul>
+            <li>Make sure it write a file called requirements.txt. </li>
+          </ul>
+            
+        <li>In the terminal, run the command <code>pip install -r requirements.txt</code> to install the dependencies.</li>
+        <li>In the terminal, run the command <code>streamlit run app.py</code> to run the app.</li>
+        <ul>
+          <li>The app should run in your web browser at <code>http://localhost:8501</code></li>
 
-</ul>
-
+      </ul>
       
       <h2 id="chatgpt">ChatGPT</h2>
       <ul>
@@ -155,9 +154,50 @@
           </ul>
         </li>
       </ul>
-    </div>
+
+
+    <h2 id="react">React + Node.js</h2>
+    <ul>
+      <li><strong>Install Node.js:</strong>
+        <ul>
+          <li>Go to <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
+          <li>Download the **LTS** version for your operating system (recommended)</li>
+          <li>Run the installer and follow the prompts</li>
+        </ul>
+      </li>
+      <li><strong>Verify Node and npm:</strong>
+        <ul>
+          <li>Open a terminal and run <code>node -v</code> and <code>npm -v</code></li>
+          <li>You should see version numbers if installation was successful</li>
+        </ul>
+      </li>
+      <li><strong>Create a React App:</strong>
+        <ul>
+          <li>In Cursor’s terminal, run: <code>npx create-react-app my-app</code></li>
+          <li>This will create a folder called <code>my-app</code> with all necessary files</li>
+        </ul>
+      </li>
+      <li><strong>Open your React App in Cursor:</strong>
+        <ul>
+          <li>In Cursor, open the folder <code>cd my-app</code></li>
+          <li>To run the app in the terminal run: <code>npm start</code></li>
+          <li>The app will open in your browser at <code>http://localhost:3000</code></li>
+        </ul>
+      </li>
+      <li><strong>Note:</strong> Cursor usually detects Node.js automatically — no need to configure paths.</li>
+    </ul>
+  
+    <h2 id="claude">Claude</h2>
+    <ul>
+      <li>Go to <a href="https://claude.ai/" target="_blank">https://claude.ai/</a></li>
+      <li>Click <strong>Sign up</strong> and follow the instructions to create an account</li>
+      <li>Verify your email and log in</li>
+    </ul>
+    
+
   </div>
     <elevenlabs-convai agent-id="MwrBSLCGGuR57DOZkncV"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  
 
 </body>
 
