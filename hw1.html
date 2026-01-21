@@ -12,6 +12,24 @@
     .assignment-box p {
       text-align: justify;
     }
+    /* Simple styling for the grading table */
+    .grading-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .grading-table th, .grading-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    .grading-table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    .grading-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
   </style>
 </head>
 <body>
@@ -24,44 +42,65 @@
     </ul>
   </nav>
 
-  <main style="max-width: 700px; margin: auto;">
-    <h1 class="schedule-header">Homework 1: Fashion Article Generator</h1>
+  <main style="max-width: 800px; margin: auto;">
+    <h1 class="schedule-header">Homework 1: The Brand & Reaction Engine</h1>
 
     <div class="assignment-box">
+      
+      <p>
+        You are a digital strategy consultant. A client has handed you a CSV file of their tweet history. 
+        They want to know: What do they talk about? Who should they sponsor? And can AI help them manage 
+        their feed autonomously?
+      </p>
+
       <h2>Instructions</h2>
       <ol>
         <li>
-          <p>Create a <strong>Streamlit web app</strong> that allows a user to:</p>
+          <p>Create a <strong>Streamlit web app</strong> titled "[Your Name] Strategic Tweet 
+            Engine" that processes a CSV file of tweets and includes the following <strong>5 Tabs</strong>:</p>
           <ol>
-            <li>Home page: Upload multiple images</li>
-            <li>Article page: Enter a short text description of the article topic 
-              (e.g., author's tone, speaking style, theme of photos, etc) and use AI 
-              to generate a nicely formatted HTML blog post based on both the images 
-              and the text description</li>
-            <li>Items page: Select from the uploaded images and use AI to generate 
-              a nicely formatted HTML table of the name, description, and 
-              estimated price of the items in the images</li>
+            <li>
+              <strong>Tab 1: The Leaderboard</strong><br>
+              Display a clean data table of the user's tweets. 
+              The table must show tweets ranked specifically by <strong>Engagement Rate</strong> (Favorites / Views).
+            </li>
+            <li>
+              <strong>Tab 2: The Activity Heatmap</strong><br>
+              Build a <strong>Heatmap</strong> showing posting frequency:
+              <ul>
+                <li>X-Axis: Hour of Day (0-23)</li>
+                <li>Y-Axis: Day of Week (Mon-Sun)</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Tab 3: Topic Modeler</strong><br>
+              Use AI to analyze the text of all of  the tweets. Identify the top 5 "Core Pillars" (topics) of the account. Display the results in a table with two columns: <em>Topic Name</em> and <em>Description</em>.
+            </li>
+            <li>
+              <strong>Tab 4: Brand Compatibility Agent</strong><br>
+              Create an input box where the user types a Brand Name (e.g., "Nike", "Yale University"). 
+              Use AI to analyze the brand against all of the user's tweets and output a <strong>Compatibility Score (0-100%)</strong> along with a paragraph of strategic reasoning.
+            </li>
+            <li>
+              <strong>Tab 5: The News Reactor </strong><br>
+              Create an input box where the user enters a <strong>News Article URL</strong>. 
+              When a URL is provided, the app should scrape the article text 
+              using <code>newspaper3k</code> or a similar library, then use AI to generate a 
+              reactive tweet in the user's specific voice based on all of their tweets. 
+              Display the generated tweet in a styled "Tweet Card" UI that includes a dummy Avatar icon, 
+              dummy Name, and the tweet Text.
+            </li>
           </ol>
         </li>
         <li>
-          <p>Your app should import the GenAI class from the genai.py file that is 
-            provided: <a href="scripts/genai.py">genai.py</a>. </p>
+          <p>The app should be robust, professionally styled, and error-free.</p>
         </li>
         <li>
-          <p>The user should only have to upload the images once on the homepage 
-            and use the same images for both the article and items pages.
-          </p>
-        </li>
-        <li>
-          <p>The app should look clean and be easy to use.</p>
-        </li>
-        <li>
-          <p>Your submission should include the following files:</p>
+          <p>Your submission should include the following files zipped into a file called <code>hw1.zip</code>:</p>
           <ol>
-            <li> app.py  - the main app file</li>
-            <li>utils.py - a file that contains helper functions for the app</li>
-            <li>genai.py - a file that contains the GenAI class</li>
-            </ol>
+            <li><code>app.py</code> - the main app file</li>
+            <li><code>requirements.txt</code> - listing all dependencies</li>
+          </ol>
         </li>
       </ol>
     </div>
@@ -78,49 +117,29 @@
         </thead>
         <tbody>
           <tr>
-            <td>App Functionality</td>
+            <td>Foundation & Tab 1</td>
             <td>10</td>
-            <td>Streamlit app runs smoothly without errors or crashes</td>
+            <td>App runs smoothly; CSV loads correctly; Tab 1 correctly sorts and displays the Leaderboard by Engagement Rate.</td>
           </tr>
           <tr>
-            <td>Image Upload (Home Page)</td>
+            <td>Tab 2: Heatmap Visuals</td>
+            <td>20</td>
+            <td>Heatmap correctly aggregates data by Day vs. Hour.</td>
+          </tr>
+          <tr>
+            <td>Tab 3: Topic Modeler</td>
             <td>15</td>
-            <td>User can upload and preview multiple images on the homepage</td>
+            <td>AI successfully extracts meaningful topics and displays them in a structured 2-column DataFrame (not just a blob of text).</td>
           </tr>
           <tr>
-            <td>State Persistence</td>
-            <td>10</td>
-            <td>Uploaded images persist across all pages using session state</td>
+            <td>Tab 4: Brand Agent</td>
+            <td>25</td>
+            <td>The AI provides a logical numeric score and specific reasoning connecting the Brand values to the User's specific tweet content.</td>
           </tr>
           <tr>
-            <td>Article Page – Input</td>
-            <td>10</td>
-            <td>Text input for style description is clearly presented</td>
-          </tr>
-          <tr>
-            <td>Article Page – Output</td>
-            <td>15</td>
-            <td>Blog article is generated using uploaded images and user input; HTML is properly displayed</td>
-          </tr>
-          <tr>
-            <td>Items Page – Image Selection</td>
-            <td>10</td>
-            <td>User can select one image from the uploaded set to analyze on the Items page</td>
-          </tr>
-          <tr>
-            <td>Items Page – Table Output</td>
-            <td>10</td>
-            <td>HTML table of item descriptions and prices is generated and displayed correctly</td>
-          </tr>
-          <tr>
-            <td>Code Structure</td>
-            <td>10</td>
-            <td>App uses helper functions from <code>utils.py</code> for blog writing and item table generation</td>
-          </tr>
-          <tr>
-            <td>Visual Presentation</td>
-            <td>10</td>
-            <td>Interface is clean, organized, and easy to navigate across pages</td>
+            <td>Tab 5: News Reactor</td>
+            <td>30</td>
+            <td>App successfully scrapes a real URL, and uses AI to generate a relevant tweet in the user's voice, and renders it in the styled "Tweet Card" UI.</td>
           </tr>
         </tbody>
       </table>

@@ -25,7 +25,7 @@
   </nav>
 
   <main style="max-width: 700px; margin: auto;">
-    <h1 class="schedule-header">Homework 2: Persona Reaction Generator</h1>
+    <h1 class="schedule-header">Homework 1: Fashion Article Generator</h1>
 
     <div class="assignment-box">
       <h2>Instructions</h2>
@@ -33,24 +33,21 @@
         <li>
           <p>Create a <strong>Streamlit web app</strong> that allows a user to:</p>
           <ol>
-            <li>Home page: Input a name and text about the persona in two input boxes
-                and then click a button to create the persona.  This should save the persona
-            in the app.</li>
-            <li>Reaction page: Choose one of your personas from a dropdown menu.  Then
-                upload an image and click a button to have the persona react to it, then show the reaction
-                text in a box below.  Make sure the image is displayed in the app
-                with width 400.</li>
+            <li>Home page: Upload multiple images</li>
+            <li>Article page: Enter a short text description of the article topic 
+              (e.g., author's tone, speaking style, theme of photos, etc) and use AI 
+              to generate a nicely formatted HTML blog post based on both the images 
+              and the text description</li>
+            <li>Items page: Select from the uploaded images and use AI to generate 
+              a nicely formatted HTML table of the name, description, and 
+              estimated price of the items in the images</li>
           </ol>
         </li>
         <li>
-          <p>Your app should either import the GenAI class from the genai.py file that is 
-            provided: <a href="scripts/genai.py" target="_blank">genai.py</a> or build your backend in n8n. 
-        </p>
+          <p>The user should only have to upload the images once on the homepage 
+            and use the same images for both the article and items pages.
+          </p>
         </li>
-        <li>
-            <p>Your app should have a Superman themed style.  You can use the 
-                <a href="https://en.wikipedia.org/wiki/Superman_(2025_film)" target="_blank">
-                    Superman 2025 film wikipedia page</a> for inspiration.</p>
         <li>
           <p>The app should look clean and be easy to use.</p>
         </li>
@@ -58,73 +55,70 @@
           <p>Your submission should include the following files:</p>
           <ol>
             <li> app.py  - the main app file</li>
-            <li> If you build your backend in n8n, you should include the n8n workflow file (JSON file).</li>
-            <li> If you build your backend in python, include any additional python files you used.</li>
             </ol>
         </li>
       </ol>
     </div>
 
     <div class="assignment-box">
-        <h2>Grading Breakdown (100 Points)</h2>
-        <table class="grading-table">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Points</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>App Functionality</td>
-              <td>10</td>
-              <td>App runs without crashes or major bugs; all pages are accessible</td>
-            </tr>
-            <tr>
-              <td>Persona Creation (Home Page)</td>
-              <td>15</td>
-              <td>User can input a name and text description to define a persona and save it</td>
-            </tr>
-            <tr>
-              <td>Persona Storage</td>
-              <td>10</td>
-              <td>Created personas are stored correctly and accessible from the dropdown</td>
-            </tr>
-            <tr>
-              <td>Reaction Page – Image Upload</td>
-              <td>10</td>
-              <td>User can upload an image and see it displayed at width 400</td>
-            </tr>
-            <tr>
-              <td>Reaction Page – Persona Output</td>
-              <td>15</td>
-              <td>Persona reacts to the uploaded image and the reaction is clearly shown</td>
-            </tr>
-            <tr>
-              <td>Backend Integration</td>
-              <td>15</td>
-              <td>App uses either the provided <code>GenAI</code> class or a working n8n backend</td>
-            </tr>
-            <tr>
-              <td>Interface and Design</td>
-              <td>10</td>
-              <td>App layout is clean, intuitive, and visually organized</td>
-            </tr>
-            <tr>
-              <td>Code Quality</td>
-              <td>10</td>
-              <td>Code is readable, modular, and well-documented; uses appropriate helper functions</td>
-            </tr>
-            <tr>
-              <td>Submission Completeness</td>
-              <td>5</td>
-              <td>All required files (e.g. app.py, GenAI/n8n workflow, others) are submitted properly</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
+      <h2>Grading Breakdown (100 Points)</h2>
+      <table class="grading-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Points</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>App Functionality</td>
+            <td>10</td>
+            <td>Streamlit app runs smoothly without errors or crashes</td>
+          </tr>
+          <tr>
+            <td>Image Upload (Home Page)</td>
+            <td>15</td>
+            <td>User can upload and preview multiple images on the homepage</td>
+          </tr>
+          <tr>
+            <td>State Persistence</td>
+            <td>10</td>
+            <td>Uploaded images persist across all pages using session state</td>
+          </tr>
+          <tr>
+            <td>Article Page – Input</td>
+            <td>10</td>
+            <td>Text input for style description is clearly presented</td>
+          </tr>
+          <tr>
+            <td>Article Page – Output</td>
+            <td>15</td>
+            <td>Blog article is generated using uploaded images and user input; HTML is properly displayed</td>
+          </tr>
+          <tr>
+            <td>Items Page – Image Selection</td>
+            <td>10</td>
+            <td>User can select one image from the uploaded set to analyze on the Items page</td>
+          </tr>
+          <tr>
+            <td>Items Page – Table Output</td>
+            <td>10</td>
+            <td>HTML table of item descriptions and prices is generated and displayed correctly</td>
+          </tr>
+          <tr>
+            <td>Code Structure</td>
+            <td>10</td>
+            <td>App uses helper functions from <code>utils.py</code> for blog writing and item table generation</td>
+          </tr>
+          <tr>
+            <td>Visual Presentation</td>
+            <td>10</td>
+            <td>Interface is clean, organized, and easy to navigate across pages</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     
   </main>
 </body>
