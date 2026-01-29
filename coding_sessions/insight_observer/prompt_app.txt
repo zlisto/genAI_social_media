@@ -1,0 +1,37 @@
+Task:
+    Create a Streamlit application named app.py for a "YouTube Content Reaction Study."
+
+Context:
+    - I already have a .env file containing my OPENAI_API_KEY
+    - The app must load video data from a youtube_data.json file
+    - The app must send captured images to the gpt-5-nano model using the OpenAI SDK
+
+Technical Requirements:
+
+1. Cross-Platform Webcam Capture:
+   - Use OpenCV (cv2) for capturing images
+   - Important: Ensure the code is cross-platform
+     * Use a check like: if sys.platform == "win32": cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+     * Otherwise use: cv2.VideoCapture(0)
+   - Capture images every 10 seconds while the "Start Recording" toggle is on
+   - Limit to a maximum of 20 images
+
+2. Streamlit UI:
+   - Display the YouTube video using the iframe HTML from the JSON
+   - Create a 2-column layout:
+     * Column 1: "Start Recording" toggle and an "Evaluate Response" button
+     * Column 2: Show the current image capture count
+
+3. Image Handling:
+   - Save images to an /images folder
+   - Automatically clear this folder whenever a new video is selected from the dropdown
+
+4. AI Logic:
+   - Format a prompt using a template from prompt_reaction.txt
+   - Send the formatted text and the base64-encoded images to OpenAI
+
+5. Logging:
+   - Log all major events to the server terminal with timestamps:
+     * Camera starts
+     * Images saved
+     * AI calls

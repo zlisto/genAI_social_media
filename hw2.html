@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homework 1 - Generative AI and Social Media</title>
+  <title>Homework 2 - Generative AI and Social Media</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     .assignment-box {
@@ -11,6 +11,30 @@
     }
     .assignment-box p {
       text-align: justify;
+    }
+    .grading-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .grading-table th, .grading-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    .grading-table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    .grading-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .url-box {
+      background-color: #e8f0fe;
+      padding: 10px;
+      border-left: 5px solid #1a73e8;
+      font-family: monospace;
+      margin: 10px 0;
     }
   </style>
 </head>
@@ -24,40 +48,69 @@
     </ul>
   </nav>
 
-  <main style="max-width: 700px; margin: auto;">
-    <h1 class="schedule-header">Homework 1: Fashion Article Generator</h1>
+  <main style="max-width: 800px; margin: auto;">
+    <h1 class="schedule-header">Homework 2: Multimodal Insight Observer</h1>
 
     <div class="assignment-box">
+      <p>
+        In this assignment, you will build a sophisticated multimodal application that allows an AI to 
+        evaluate a user's response to a YouTube video through two data streams: real-time facial 
+        expressions and a qualitative interview. You are moving beyond simple data display into 
+        creating an interactive "feedback agent."
+      </p>
+
       <h2>Instructions</h2>
+      <p>
+        Your app must allow a user to watch a specific video while the AI "watches" them. After the 
+        video ends, the AI should use its observations to conduct a live interview with the user, 
+        culminating in a final comprehensive sentiment report.  The app must have the following features:
+      </p>
+
       <ol>
         <li>
-          <p>Create a <strong>Streamlit web app</strong> that allows a user to:</p>
-          <ol>
-            <li>Home page: Upload multiple images</li>
-            <li>Article page: Enter a short text description of the article topic 
-              (e.g., author's tone, speaking style, theme of photos, etc) and use AI 
-              to generate a nicely formatted HTML blog post based on both the images 
-              and the text description</li>
-            <li>Items page: Select from the uploaded images and use AI to generate 
-              a nicely formatted HTML table of the name, description, and 
-              estimated price of the items in the images</li>
-          </ol>
+          <strong>YouTube Video Metadata:</strong> The app must include an input box for a YouTube URL. 
+          When a URL is provided, the app must programmatically retrieve the <strong>Video Title, 
+          Duration (in seconds), Description, and Transcript</strong>.
         </li>
         <li>
-          <p>The user should only have to upload the images once on the homepage 
-            and use the same images for both the article and items pages.
-          </p>
+          <strong>Visual Evaluation:</strong> Use the webcam to capture the user's reactions while they watch the video.
+          <ul>
+            <li><strong>Model:</strong> Use <code>gpt-5-nano</code> for all AI processing.</li>
+            <li><strong>Sampling:</strong> Capture and send a <strong>maximum of 20 images</strong> 
+            to the AI for the initial visual evaluation. Display the visual evaluation in a nicely formatted way.</li>
+          </ul>
         </li>
         <li>
-          <p>The app should look clean and be easy to use.</p>
+          <strong>The Interviewer (Chatbot):</strong> 
+          After the video ends, initialize a chatbot interface through a button "Start Interview". The AI's <strong>System Prompt</strong> 
+          must be "injected" with the video metadata and the results of the visual evaluation. 
+          The AI should ask the user what they liked/disliked and reference their 
+          facial expressions (e.g., "I noticed you smiled at [Time X], what caused that?").
         </li>
         <li>
-          <p>Your submission should include the following files:</p>
-          <ol>
-            <li> app.py  - the main app file</li>
-            </ol>
+          <strong>Final Synthesis:</strong> 
+          Include an "End Chat" button. When clicked, the app sends the full chat history, 
+          the video metadata, and the visual evaluation to the AI to write a final summary 
+          of how the user truly felt about the content. The report should be displayed in a nicely formatted way.
         </li>
       </ol>
+
+      <h2>Test Video</h2>
+      <p>Please test your application using the official trailer for <em>The Mandalorian and Grogu</em>:</p>
+      <div class="url-box">
+        <a href="https://www.youtube.com/watch?v=_pa1KLXuW0Y" target="_blank">https://www.youtube.com/watch?v=_pa1KLXuW0Y</a>
+      </div>
+
+      <h2>Submission Checklist</h2>
+      <p>Zip the following files into <code>hw2.zip</code>:</p>
+      <ul>
+        <li><code>app.py</code> - Your full Streamlit application code.</li>
+        <li><code>requirements.txt</code> - All dependencies (including libraries for YouTube scraping).</li>
+        <li><code>final_prompt.txt</code> - A text file containing the exact final prompt template 
+        used to generate the Final Synthesis Report 
+        (which should include the video metadata, the visual evaluation, and the chat history 
+        generated when you test the app on the test video).</li>
+      </ul>
     </div>
 
     <div class="assignment-box">
@@ -72,54 +125,42 @@
         </thead>
         <tbody>
           <tr>
-            <td>App Functionality</td>
-            <td>10</td>
-            <td>Streamlit app runs smoothly without errors or crashes</td>
+            <td>YouTube Video Metadata</td>
+            <td>20</td>
+            <td>Successfully extracts Title, Duration, Description, and Transcript from the live YouTube URL.</td>
           </tr>
           <tr>
-            <td>Image Upload (Home Page)</td>
+            <td>Visual Evaluation</td>
+            <td>20</td>
+            <td>Correctly captures up to 20 frames and uses gpt-5-nano to create a visual evaluation.</td>
+          </tr>
+          <tr>
+            <td>Interview Logic</td>
+            <td>20</td>
+            <td>"Start Interview" button starts a chatbot that successfully uses the initial evaluation 
+              and video metadata within its system prompt.
+            </td>
+          </tr>
+          <tr>
+            <td>Final Synthesis</td>
+            <td>20</td>
+            <td>"End Chat" button triggers a coherent report that integrates chat history with visual/video data. The report
+              is displayed in a nicely formatted way.
+            </td>
+          </tr>
+          <tr>
+            <td>Final Prompt Completeness</td>
             <td>15</td>
-            <td>User can upload and preview multiple images on the homepage</td>
+            <td><code>final_prompt.txt</code> contains the exact final prompt template used in the app and clearly incorporates video metadata, the visual evaluation, and the chat history, as described in the assignment.</td>
           </tr>
           <tr>
-            <td>State Persistence</td>
-            <td>10</td>
-            <td>Uploaded images persist across all pages using session state</td>
-          </tr>
-          <tr>
-            <td>Article Page – Input</td>
-            <td>10</td>
-            <td>Text input for style description is clearly presented</td>
-          </tr>
-          <tr>
-            <td>Article Page – Output</td>
-            <td>15</td>
-            <td>Blog article is generated using uploaded images and user input; HTML is properly displayed</td>
-          </tr>
-          <tr>
-            <td>Items Page – Image Selection</td>
-            <td>10</td>
-            <td>User can select one image from the uploaded set to analyze on the Items page</td>
-          </tr>
-          <tr>
-            <td>Items Page – Table Output</td>
-            <td>10</td>
-            <td>HTML table of item descriptions and prices is generated and displayed correctly</td>
-          </tr>
-          <tr>
-            <td>Code Structure</td>
-            <td>10</td>
-            <td>App uses helper functions from <code>utils.py</code> for blog writing and item table generation</td>
-          </tr>
-          <tr>
-            <td>Visual Presentation</td>
-            <td>10</td>
-            <td>Interface is clean, organized, and easy to navigate across pages</td>
+            <td>Proper Submission Zip</td>
+            <td>5</td>
+            <td><code>hw2.zip</code> is submitted and correctly contains <code>app.py</code>, <code>requirements.txt</code>, and <code>final_prompt.txt</code> with the expected structure and filenames.</td>
           </tr>
         </tbody>
       </table>
     </div>
-    
   </main>
 </body>
 </html>

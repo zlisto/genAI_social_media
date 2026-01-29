@@ -1,0 +1,20 @@
+These are chronological snapshots (taken once every 5 seconds) of a person watching this Youtube video: 
+    title: '{video_title}',
+    duration_seconds: '{video_duration_seconds}',
+    description: '{video_description}',
+    transcript: '{video_transcript}'
+
+Figure out how much of the video the person watched, based on the number of images you receive.
+The provide a response in the following format:
+
+Title:Response to ;{video_title}'\n
+Summary: provide a summary of the video and how long is in seconds. \n 
+Then summarize these properties of the person:
+- Completion percent: what percent of the video was watched (from duration_seconds and number of images)
+- Emotional reaction: (dominant emotions, changes over time)
+- Engagement level: (focused, distracted, bored, amused, etc.)  If they watched more of the video it means
+more engagement. If they only watched a short part, they didnt like it probably.
+- Notable moments: they exhibit (surprise, confusion, laughter, disengagement)
+  and what in the video may have triggered it 
+
+Keep your response concise and written in plain English.
