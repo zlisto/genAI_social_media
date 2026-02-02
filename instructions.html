@@ -20,12 +20,9 @@
     <div class="sidebar">
       <a href="#cursor">Cursor</a>
       <a href="#streamlit">Streamlit</a>
-      <a href="#chatgpt">ChatGPT</a>
-      <a href="#elevenlabs">ElevenLabs</a>
-      <a href="#n8n">n8n</a>
-      <a href="#github">GitHub</a>
       <a href="#react">React + Node.js</a>
-      <a href="#claude">Claude</a>
+      <a href="#github">GitHub</a>
+      <a href="#elevenlabs">ElevenLabs</a>
     </div>
     
 
@@ -88,34 +85,56 @@
             <li>Make sure it write a file called requirements.txt. </li>
           </ul>
             
-        <li>In the terminal, run the command <code>pip install -r requirements.txt</code> to install the dependencies.</li>
-        <li>In the terminal, run the command <code>streamlit run app.py</code> to run the app.</li>
+        <li>In the terminal, install the dependencies:</li>
+      </ul>
+      <pre class="terminal"><code>pip install -r requirements.txt</code></pre>
+      <ul>
+        <li>In the terminal, run the app:</li>
+      </ul>
+      <pre class="terminal"><code>streamlit run app.py</code></pre>
+      <ul>
+        <li>The app should run in your web browser at <code>http://localhost:8501</code></li>
+      </ul>
+
+    <h2 id="react">React + Node.js</h2>
+    <p>For a video walkthrough on how to install React and Node.js, see <a href="https://www.youtube.com/watch?v=BCX6UVQba4U" target="_blank">this YouTube tutorial</a>.</p>
+    <ul>
+      <li><strong>Install Node.js:</strong>
         <ul>
-          <li>The app should run in your web browser at <code>http://localhost:8501</code></li>
-
-      </ul>
-      
-      <h2 id="chatgpt">ChatGPT</h2>
-      <ul>
-        <li>Go to openai.com and create an account</li>
-        <li>Verify your email and phone number</li>
-        <li>Upgrade to ChatGPT Plus if you want access to GPT-4 and tools</li>
-      </ul>
-
-      <h2 id="elevenlabs">ElevenLabs</h2>
-      <ul>
-        <li>Go to <a href="https://elevenlabs.io" target="_blank">elevenlabs.io</a></li>
-        <li>Create a free account</li>
-        <li>Verify your email address</li>
-        <li>Get your API key from the dashboard (needed for assignments)</li>
-      </ul>
-      <h2 id="n8n">n8n</h2>
-      <ul>
-        <li>Go to <a href="https://n8n.io" target="_blank">n8n.io</a> and click “Get Started”</li>
-        <li>Start a free trial and create an account using your email and set a password and account name</li>        
-      </ul>
-
-
+          <li>Go to <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
+          <li>Download the **LTS** version for your operating system (recommended)</li>
+          <li>Run the installer and follow the prompts</li>
+          <li><strong>Note:</strong> The installer may offer optional tools for building native modules. If you run into errors during this step, you can safely skip installing those optional tools — React and Node.js will work fine without them.</li>
+        </ul>
+      </li>
+      <li><strong>Verify Node and npm:</strong>
+        <ul>
+          <li>Open a terminal and run:</li>
+        </ul>
+        <pre class="terminal"><code>node -v
+npm -v</code></pre>
+        <ul>
+          <li>You should see version numbers if installation was successful</li>
+        </ul>
+      </li>
+      <li><strong>Create a React App:</strong>
+        <ul>
+          <li>Create a folder for your app (e.g. <code>my-app</code>)</li>
+          <li>Open that folder in Cursor (<strong>File &gt; Open Folder</strong>)</li>
+          <li>In Cursor's terminal, run:</li>
+        </ul>
+        <pre class="terminal"><code>npx create-react-app .</code></pre>
+        <ul>
+          <li>This creates all the React files inside the current folder</li>
+          <li>To run the app, in the terminal run:</li>
+        </ul>
+        <pre class="terminal"><code>npm start</code></pre>
+        <ul>
+          <li>The app will open in your browser at <code>http://localhost:3000</code></li>
+        </ul>
+      </li>
+      <li><strong>Note:</strong> Cursor usually detects Node.js automatically — no need to configure paths.</li>
+    </ul>
 
       <h2 id="github">GitHub</h2>
       <ul>
@@ -137,60 +156,37 @@
           <ul>
             <li>Open Cursor.</li>
             <li>Open the integrated terminal in Cursor (<code>Ctrl+`</code> or <code>View &gt; Terminal</code>).</li>
-            <li>Set your Git username and email (replace with your info):
-              <ul>
-                <li><code>git config --global user.name "Your Name"</code></li>
-                <li><code>git config --global user.email "your@email.com"</code></li>
-              </ul>
-            </li>
-            <li>Authenticate with GitHub:
-              <ul>
-                <li>In the terminal, run <code>git login</code> or try to clone a repo (e.g., <code>git clone https://github.com/your-username/your-repo.git</code>).</li>
-                <li>Follow the prompts to sign in with your GitHub account (you may need to generate a personal access token from your GitHub account settings).</li>
-              </ul>
-            </li>
-            <li>To check your setup, run <code>git --version</code> and <code>git config --list</code> in the terminal.</li>
+            <li>Set your Git username and email (replace with your info):</li>
+          </ul>
+          <pre class="terminal"><code>git config --global user.name "Your Name"
+git config --global user.email "your@email.com"</code></pre>
+          <ul>
+            <li>Authenticate with GitHub:</li>
+          </ul>
+          <pre class="terminal"><code>git login</code></pre>
+          <ul>
+            <li>Or try to clone a repo (e.g.):</li>
+          </ul>
+          <pre class="terminal"><code>git clone https://github.com/your-username/your-repo.git</code></pre>
+          <ul>
+            <li>Follow the prompts to sign in with your GitHub account (you may need to generate a personal access token from your GitHub account settings).</li>
+            <li>To check your setup, run:</li>
+          </ul>
+          <pre class="terminal"><code>git --version
+git config --list</code></pre>
+          <ul>
             <li>Now you can use Git commands in Cursor to manage your code (clone, commit, push, pull, etc.).</li>
           </ul>
         </li>
       </ul>
 
-
-    <h2 id="react">React + Node.js</h2>
-    <ul>
-      <li><strong>Install Node.js:</strong>
-        <ul>
-          <li>Go to <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
-          <li>Download the **LTS** version for your operating system (recommended)</li>
-          <li>Run the installer and follow the prompts</li>
-        </ul>
-      </li>
-      <li><strong>Verify Node and npm:</strong>
-        <ul>
-          <li>Open a terminal and run <code>node -v</code> and <code>npm -v</code></li>
-          <li>You should see version numbers if installation was successful</li>
-        </ul>
-      </li>
-      <li><strong>Create a React App:</strong>
-        <ul>
-          <li>Create a folder for your app (e.g. <code>my-app</code>)</li>
-          <li>Open that folder in Cursor (<strong>File &gt; Open Folder</strong>)</li>
-          <li>In Cursor's terminal, run: <code>npx create-react-app .</code></li>
-          <li>This creates all the React files inside the current folder</li>
-          <li>To run the app, in the terminal run: <code>npm start</code></li>
-          <li>The app will open in your browser at <code>http://localhost:3000</code></li>
-        </ul>
-      </li>
-      <li><strong>Note:</strong> Cursor usually detects Node.js automatically — no need to configure paths.</li>
-    </ul>
-  
-    <h2 id="claude">Claude</h2>
-    <ul>
-      <li>Go to <a href="https://claude.ai/" target="_blank">https://claude.ai/</a></li>
-      <li>Click <strong>Sign up</strong> and follow the instructions to create an account</li>
-      <li>Verify your email and log in</li>
-    </ul>
-    
+      <h2 id="elevenlabs">ElevenLabs</h2>
+      <ul>
+        <li>Go to <a href="https://elevenlabs.io" target="_blank">elevenlabs.io</a></li>
+        <li>Create a free account</li>
+        <li>Verify your email address</li>
+        <li>Get your API key from the dashboard (needed for assignments)</li>
+      </ul>
 
   </div>
     <elevenlabs-convai agent-id="MwrBSLCGGuR57DOZkncV"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>

@@ -208,9 +208,30 @@ table, th, td {
 }
 
 code {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  font-size: 16px;
   line-height: 1.6;
+  background-color: #1a1a2e;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #33ffcc;
+}
+
+/* Block-style code box for terminal commands */
+pre.terminal {
+  background-color: #1a1a2e;
+  border: 1px solid #33ffcc;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  overflow-x: auto;
+}
+
+pre.terminal code {
+  background: none;
+  padding: 0;
+  border: none;
+  font-size: 16px;
 }
 
 a {
