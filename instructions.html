@@ -137,6 +137,8 @@ npm -v</code></pre>
     </ul>
 
       <h2 id="github">GitHub</h2>
+      <p>For a video walkthrough on how to install git on a Windows machine, see this <a href="https://www.youtube.com/watch?v=VWbX2B3Q-1g" target="_blank">YouTube tutorial</a>.</p>
+      <p>For a video walkthrough on how to install git on a Mac machine, see this <a href="https://www.youtube.com/watch?v=B4qsvQ5IqWk" target="_blank">YouTube tutorial</a>.</p>      
       <ul>
         <li><strong>Create a GitHub Account:</strong>
           <ul>
@@ -147,35 +149,31 @@ npm -v</code></pre>
         </li>
         <li><strong>Download and Install Git:</strong>
           <ul>
-            <li>Go to <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a></li>
-            <li>Download the installer for your operating system (Windows/Mac).</li>
-            <li>Run the installer and follow the setup instructions.</li>
+            <li><strong>Windows:</strong> Go to <a href="https://git-scm.com/download/win" target="_blank">https://git-scm.com/download/win</a> and download the "64-bit Git for Windows Setup." Run the installer and accept the default settings.</li>
+            <li><strong>Mac:</strong> Simply open your terminal and type <code>git</code>. A popup will appear asking if you want to install the "Command Line Developer Tools." Click <strong>Install</strong>. (Alternatively, use <code>brew install git</code> if you have Homebrew).</li>
           </ul>
         </li>
         <li><strong>Integrate GitHub with Cursor:</strong>
           <ul>
-            <li>Open Cursor.</li>
-            <li>Open the integrated terminal in Cursor (<code>Ctrl+`</code> or <code>View &gt; Terminal</code>).</li>
-            <li>Set your Git username and email (replace with your info):</li>
+            <li>Open <strong>Cursor</strong>.</li>
+            <li>Open the integrated terminal (<code>Ctrl + `</code> or <code>View &gt; Terminal</code>).</li>
+            <li>Set your Git identity (this attaches your name to your code changes):</li>
           </ul>
           <pre class="terminal"><code>git config --global user.name "Your Name"
 git config --global user.email "your@email.com"</code></pre>
           <ul>
-            <li>Authenticate with GitHub:</li>
-          </ul>
-          <pre class="terminal"><code>git login</code></pre>
-          <ul>
-            <li>Or try to clone a repo (e.g.):</li>
+            <li><strong>Authentication:</strong> The easiest way is to click the <strong>Accounts icon</strong> (bottom-left corner of Cursor) and select <strong>"Sign in with GitHub"</strong>. This handles the security tokens for you.</li>
+            <li>Alternatively, you can authenticate via the terminal by trying to clone a repository:</li>
           </ul>
           <pre class="terminal"><code>git clone https://github.com/your-username/your-repo.git</code></pre>
           <ul>
-            <li>Follow the prompts to sign in with your GitHub account (you may need to generate a personal access token from your GitHub account settings).</li>
-            <li>To check your setup, run:</li>
+            <li>Follow the browser prompt to sign in. Once authorized, you won't have to sign in again.</li>
+            <li>To verify everything is working, run:</li>
           </ul>
           <pre class="terminal"><code>git --version
 git config --list</code></pre>
           <ul>
-            <li>Now you can use Git commands in Cursor to manage your code (clone, commit, push, pull, etc.).</li>
+            <li><strong>Pro Tip:</strong> You can now use the <strong>Source Control tab</strong> (the branch icon on the left sidebar) in Cursor to stage and commit changes without typing commands!</li>
           </ul>
         </li>
       </ul>
