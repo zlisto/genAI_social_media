@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homework 1 - Generative AI and Social Media</title>
+  <title>Homework 3 - Generative AI and Social Media</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .assignment-box {
-      text-align: left;
-      text-align-last: left;
-    }
-    .assignment-box p {
-      text-align: justify;
-    }
+    .assignment-box { text-align: left; margin-bottom: 40px; }
+    .assignment-box p { text-align: justify; }
+    .grading-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .grading-table th, .grading-table td { border: 1px solid #ddd; padding: 12px; }
+    .grading-table th { background-color: #f2f2f2; font-weight: bold; }
+    pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
   </style>
 </head>
 <body>
@@ -24,108 +23,86 @@
     </ul>
   </nav>
 
-  <main style="max-width: 700px; margin: auto;">
-    <h1 class="schedule-header">Homework 3: Persona Reaction Generator</h1>
+  <main style="max-width: 800px; margin: auto; padding: 20px;">
+    <h1 class="schedule-header">Homework 3: AI Video Narrator 2.0</h1>
 
     <div class="assignment-box">
-      <h2>Instructions</h2>
-      <ol>
-        <li>
-          <p>Create a <strong>Streamlit web app</strong> that allows a user to:</p>
-          <ol>
-            <li>Home page: Input a name and text about the persona in two input boxes
-                and then click a button to create the persona.  This should save the persona
-            in the app.</li>
-            <li>Reaction page: Choose one of your personas from a dropdown menu.  Then
-                upload an image and click a button to have the persona react to it, then show the reaction
-                text in a box below.  Make sure the image is displayed in the app
-                with width 400.</li>
-          </ol>
-        </li>
-        <li>
-          <p>Your app should either import the GenAI class from the genai.py file that is 
-            provided: <a href="scripts/genai.py" target="_blank">genai.py</a> or build your backend in n8n. 
-        </p>
-        </li>
-        <li>
-            <p>Your app should have a Superman themed style.  You can use the 
-                <a href="https://en.wikipedia.org/wiki/Superman_(2025_film)" target="_blank">
-                    Superman 2025 film wikipedia page</a> for inspiration.</p>
-        <li>
-          <p>The app should look clean and be easy to use.</p>
-        </li>
-        <li>
-          <p>Your submission should include the following files:</p>
-          <ol>
-            <li> app.py  - the main app file</li>
-            <li> If you build your backend in n8n, you should include the n8n workflow file (JSON file).</li>
-            <li> If you build your backend in python, include any additional python files you used.</li>
-            </ol>
-        </li>
+      <p>In this assignment, you will add several features to an AI video narration app.</p>
+      
+      <h2>Task Instructions</h2>    
+      <p>Clone the video narration app (<a href="https://github.com/zlisto/video_narrator.git" target="_blank">[GitHub]</a>), then 
+        implement the following features in <code>App.js</code> and <code>App.css</code>:</p>
+      
+      <ol>        
+        <li><strong>PDF Spec Sheet Integration:</strong> Add a file upload feature for a Product Spec Sheet (PDF). 
+          Extract the text and include it in your AI prompt (in the <code>public/prompt_narration.txt</code> file) so the narration is informed by specific product facts.</li>
+
+        <li><strong>Voice Selection Menu:</strong> Add a dropdown menu for OpenAI’s voices 
+          (all default OpenAI voices must be included).</li>
+        
+        <li><strong>AI Voice Database:</strong> Create a <code>voice_description.json</code> file in 
+          the <code>public</code> folder mapping each voice to its specific "vibe" and appropriate use case.
+          All OpenAI default voices must be included. The file format should be:
+        <pre><code>{
+  "voice1_name": "voice1_description",
+  "voice2_name": "voice2_description",
+  ...
+}</code></pre></li>
+
+        <li><strong>The "Magic Wand" Selector:</strong> Add a 🪄 button that automatically selects the best voice based on the
+          JSON file of voice descriptions, the video images, the narration instructions, the PDF content, and the generated narration text. 
+          Display a written explanation of the voice choice in the app. (<em>Hint:</em> ask the AI to return the result in JSON format.) Your prompt for this feature must be stored in <code>public/prompt_voice.txt</code>.</li>
+
+        <li><strong>Heartbeat UI:</strong> Style your action buttons as hearts (❤️). 
+          While the AI is processing (generating text, audio, or merging), the hearts must pulse using a 
+          CSS keyframe animation.  Make sure the code for this feature is in <code>App.css</code> or <code>App.js</code>.</li>
       </ol>
+
+
+      <h2>Test App</h2>
+      <p>Test your application using the video and PDF provided in the <code>public</code> folder.<br>
+      Use the <code>gpt-5-nano</code> model for the AI unless you have your own API key.</p>
+    
+
+
+
+      <h2>Submission Checklist</h2>
+      <p>Zip <strong>ONLY</strong> the following files into <code>hw3.zip</code>. Keep the same folder structure (e.g. <code>public/</code> for files in that folder). Submitting extra files or using incorrect names will result in a deduction.</p>
+      <ul>
+        <li><code>App.js</code></li>
+        <li><code>App.css</code></li>
+        <li><code>voice_description.json</code></li>
+        <li><code>public/prompt_voice.txt</code></li>
+        <li><code>public/prompt_narration.txt</code></li>
+      </ul>
     </div>
 
     <div class="assignment-box">
-        <h2>Grading Breakdown (100 Points)</h2>
-        <table class="grading-table">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Points</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>App Functionality</td>
-              <td>10</td>
-              <td>App runs without crashes or major bugs; all pages are accessible</td>
-            </tr>
-            <tr>
-              <td>Persona Creation (Home Page)</td>
-              <td>15</td>
-              <td>User can input a name and text description to define a persona and save it</td>
-            </tr>
-            <tr>
-              <td>Persona Storage</td>
-              <td>10</td>
-              <td>Created personas are stored correctly and accessible from the dropdown</td>
-            </tr>
-            <tr>
-              <td>Reaction Page – Image Upload</td>
-              <td>10</td>
-              <td>User can upload an image and see it displayed at width 400</td>
-            </tr>
-            <tr>
-              <td>Reaction Page – Persona Output</td>
-              <td>15</td>
-              <td>Persona reacts to the uploaded image and the reaction is clearly shown</td>
-            </tr>
-            <tr>
-              <td>Backend Integration</td>
-              <td>15</td>
-              <td>App uses either the provided <code>GenAI</code> class or a working n8n backend</td>
-            </tr>
-            <tr>
-              <td>Interface and Design</td>
-              <td>10</td>
-              <td>App layout is clean, intuitive, and visually organized</td>
-            </tr>
-            <tr>
-              <td>Code Quality</td>
-              <td>10</td>
-              <td>Code is readable, modular, and well-documented; uses appropriate helper functions</td>
-            </tr>
-            <tr>
-              <td>Submission Completeness</td>
-              <td>5</td>
-              <td>All required files (e.g. app.py, GenAI/n8n workflow, others) are submitted properly</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-    
+      <h2>Grading Breakdown (100 Points)</h2>
+      <table class="grading-table">
+        <thead>
+          <tr><th>Task Component</th><th>Points</th><th>Requirement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. PDF Integration</td><td>25</td><td>Successfully extracts text from PDF and uses it in the narration prompt.
+            Includes the PDF content in the narration prompt file <code>public/prompt_narration.txt</code>.
+          </td></tr>
+          
+          <tr><td>2. Voice Dropdown</td><td>15</td><td>Functional menu with all OpenAI default voices.</td></tr>
+          
+          <tr><td>3. Voice JSON File</td><td>15</td><td>Properly formatted <code>voice_description.json</code> in the public 
+            folder with all OpenAI default voices and correct descriptions.</td></tr>
+          
+          <tr><td>4. Magic Wand Logic</td><td>25</td><td>Button selects a voice via AI and displays a valid justification.  
+            The prompt for this includes the voice description JSON, the video images, the narration instructions, the PDF content, and the generated narration text. The prompt is stored in <code>public/prompt_voice.txt</code>.
+          </td></tr>
+          
+          <tr><td>5. Heartbeat UI</td><td>10</td><td>Heart buttons exist and pulse correctly during all loading/processing states.</td></tr>
+          
+          <tr><td>6. Proper Submission</td><td>10</td><td>Zipped file contains only the requested files with exact naming conventions.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </main>
 </body>
 </html>
