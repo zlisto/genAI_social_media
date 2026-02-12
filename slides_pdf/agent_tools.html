@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AI Reel Maker: LLM Tool Use & Agents</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css">
+    <style>
+        :root { --r-main-font-size: 32px; }
+        .reveal h1, .reveal h2 { color: #4285F4; text-transform: none; }
+        .reveal h3 { color: #f1c40f; }
+        .highlight { color: #f1c40f; font-weight: bold; }
+        .reveal table { font-size: 0.7em; }
+        .reveal pre { width: 90%; margin: 20px auto; }
+        .chat-bubble { padding: 10px 15px; border-radius: 15px; margin: 10px 0; font-size: 0.8em; }
+        .bot { background: #444; text-align: left; border-left: 5px solid #4285F4; }
+        .user { background: #007bff; text-align: right; margin-left: 20%; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1>AI Agent Tools</h1>
+                <p><small>Tauhid Zaman | Yale SOM</small></p>
+            </section>
+
+            <section>
+                <h2>The "Static" Chatbot Problem</h2>
+                <p>Standard chatbots are like brilliant scholars locked in a room.</p>
+                <ul>
+                    <li class="fragment">They can <strong>talk</strong> about anything...</li>
+                    <li class="fragment">But they can't <strong>do</strong> anything.</li>
+                    <li class="fragment">They have no "hands" to act upon your commands.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>The Solution: Tools</h2>
+                <p>We give the chatbot access to a set of tools </p>
+                <div style="display: flex; justify-content: space-around; margin-top: 30px;">
+                    <div class="fragment" style="text-align: center;">
+                        <span style="font-size: 3em;">🗣️</span>
+                        <p><strong>Natural Language</strong></p>
+                    </div>
+                    <div class="fragment" style="text-align: center; color: #4285F4; font-size: 2em; padding-top: 20px;">➔</div>
+                    <div class="fragment" style="text-align: center;">
+                        <span style="font-size: 3em;">🛠️</span>
+                        <p><strong>Tool Calling</strong></p>
+                    </div>
+                    <div class="fragment" style="text-align: center; color: #4285F4; font-size: 2em; padding-top: 20px;">➔</div>
+                    <div class="fragment" style="text-align: center;">
+                        <span style="font-size: 3em;">⚙️</span>
+                        <p><strong>Automated Action</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <section>
+                    <h2>The 4-Step Handshake</h2>
+                    <p>How a chat becomes action</p>
+                    <ol>
+                        <li class="fragment"><strong>Tool declaration:</strong> Define the tool name and parameters.</li>
+                        <li class="fragment"><strong>Reasoning:</strong> Chatbot decides to use the tool.</li>
+                        <li class="fragment"><strong>The Call:</strong> Chatbot returns parameters as a JSON object (not text).</li>
+                        <li class="fragment"><strong>Execution:</strong> Your app runs a function with the parameters.</li>
+                    </ol>
+                    <p class="fragment" style="font-size: 0.6em; color: gray;">(Press Down ↓ to see the code contract)</p>
+                </section>
+
+                <section>
+                    <h3>Step 1: Tool Declaration</h3>
+                    <pre><code class="language-json" data-trim>
+{
+  "name": "generateMovieScript",
+  "description": "Updates the scene editor with a new script",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "scenes": {
+        "type": "array",
+        "items": { 
+          "type": "object", 
+          "properties": { "description": "string", "narration": "string" } 
+        }
+      }
+    },
+    "required": ["scenes"]
+  }
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Step 2: Chatbot Response</h3>
+                    <p>The "Invisible Handshake"</p>
+                    <pre><code class="language-json" data-trim>
+{
+  "functionCall": {
+    "name": "generateMovieScript",
+    "args": {
+      "scenes": [
+        { "description": "Neon city...", "narration": "Welcome..." }
+      ]
+    }
+  }
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Step 3: "Catch & Execute" Function</h3>
+                    <p>How the app handles the chatbot's request.</p>
+                    <pre><code class="language-javascript" >
+async function handleChat(userInput) {
+  const result = await chat.sendMessage(userInput);
+  
+  // 1. Check if Gemini requested a Tool
+  const call = result.response.functionCalls()?.[0];
+
+  if (call?.name === "generateMovieScript") {
+    
+    // 2. EXECUTION: Run the local React function
+    handleAssistantScript(call.args.scenes); 
+
+    return "I've updated the editor for you!";
+  }
+  
+  return result.response.text();
+}
+                    </code></pre>
+                    <div class="fragment" style="font-size: 0.6em; background: #444; padding: 10px; border-radius: 5px;">
+                        <span class="highlight">Action:</span> The code then executes the <code>handleAssistantScript</code> function with the parameters.
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h2>User Experience: The Assistant</h2>
+                <div style="display: flex; align-items: flex-start; gap: 20px;">
+                    <div style="flex: 1; background: #222; padding: 20px; border-radius: 10px; border: 1px solid #4285F4;">
+                        <div class="chat-bubble bot fragment">Hi! How can I help?</div>
+                        <div class="chat-bubble user fragment">Write a 5 scene script for ...</div>
+                        <div class="chat-bubble bot fragment">... ⚙️</div>
+                        <div class="chat-bubble bot fragment">The script is ready!</div>
+
+                    </div>
+                    <div style="flex: 1; text-align: left; font-size: 0.8em;">
+                        <ul>
+                            <li class="fragment">The chatbot identified a <strong>creative intent</strong>.</li>
+                            <li class="fragment">It calculated the <strong>parameters</strong>.</li>
+                            <li class="fragment">Your app executed the <code>handleAssistantScript</code> function with the parameters.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Traditional User Interface (UI) vs AI Tools</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Traditional UI</th>
+                            <th>AI Tools</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Input</strong></td>
+                            <td>Forms & Buttons</td>
+                            <td>Conversation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accuracy</strong></td>
+                            <td>Manual Data Entry</td>
+                            <td>AI Assisted Data Generation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flexibility</strong></td>
+                            <td>Rigid Workflow</td>
+                            <td>Dynamic Workflow</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>AI Tool Examples</h2>
+                <ul style="font-size: 0.8em;">
+                    <li class="fragment"><strong>Content Creation Assistant:</strong> Agent creates and posts social media content for you.</li>
+                    <li class="fragment"><strong>Web Search:</strong> Agent searches the web to answer questions or provide information.</li>                    
+                    <li class="fragment"><strong>Calendar Management:</strong> Agent schedules your meetings on your calendar.</li>                    
+                    <li class="fragment"><strong>Portfolio Manager:</strong> Agent calls a <code>trade_crypto()</code> tool to execute buy/sell orders based on a strategy.</li>                    
+                    <li class="fragment"><strong>Data Scientist:</strong> Agent uses a <code>run_python()</code> tool to generate charts, run regressions, and analyze the results.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li class="fragment"><strong>Chatbots  > Agents :</strong> Tools turn chatbots into active assistants.</li>
+                    <li class="fragment"><strong>Reliability:</strong> AI tools make user experience easier and more reliable</li>
+                    <li class="fragment"><strong>Flexibility:</strong> Chatbot interface  makes the user experience dynamic and personalized</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [ RevealHighlight ],
+            transition: 'convex', 
+            center: true
+        });
+    </script>
+</body>
+</html>
