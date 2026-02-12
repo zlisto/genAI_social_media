@@ -4,22 +4,40 @@
     <meta charset="utf-8">
     <title>AI Reel Maker: LLM Tool Use & Agents</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css">
     <style>
         :root { --r-main-font-size: 32px; }
-        .reveal h1, .reveal h2 { color: #4285F4; text-transform: none; }
-        .reveal h3 { color: #f1c40f; }
-        .highlight { color: #f1c40f; font-weight: bold; }
-        .reveal table { font-size: 0.7em; }
-        .reveal pre { width: 90%; margin: 20px auto; }
+        /* Override reveal theme to match site: #0f0f23, #33ffcc, #ff66cc */
+        .reveal { background-color: #0f0f23; height: calc(100vh - 52px); }
+        .reveal .slides section { background-color: transparent; }
+        .reveal h1, .reveal h2 { color: #33ffcc; text-transform: none; text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff1ab3; }
+        .reveal h3 { color: #ff66cc; text-shadow: 0 0 4px #ff66cc; }
+        .reveal p, .reveal li { color: #33ffcc; }
+        .reveal table { font-size: 0.7em; color: #33ffcc; }
+        .reveal th { color: #ff66cc; border-color: #ff66cc; }
+        .reveal td { border-color: #33ffcc; }
+        .reveal pre { width: 90%; margin: 20px auto; background-color: #1a1a2e; border: 1px solid #33ffcc; }
+        .reveal code { background-color: #1a1a2e; border: 1px solid #33ffcc; color: #33ffcc; }
+        .highlight { color: #ff66cc; font-weight: bold; text-shadow: 0 0 4px #ff66cc; }
         .chat-bubble { padding: 10px 15px; border-radius: 15px; margin: 10px 0; font-size: 0.8em; }
-        .bot { background: #444; text-align: left; border-left: 5px solid #4285F4; }
-        .user { background: #007bff; text-align: right; margin-left: 20%; }
+        .bot { background: #1a1a2e; text-align: left; border-left: 5px solid #33ffcc; color: #33ffcc; }
+        .user { background: #1a1a2e; text-align: right; margin-left: 20%; border-right: 5px solid #ff66cc; color: #ff99cc; }
+        .reveal .fragment.highlight-current-green.current-fragment { color: #33ffcc; }
+        .reveal section .fragment { color: #33ffcc; }
     </style>
 </head>
 <body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../instructions.html">Instructions</a></li>
+            <li><a href="../lectures.html">Lectures</a></li>
+            <li><a href="../homeworks.html">Homeworks</a></li>
+        </ul>
+    </nav>
     <div class="reveal">
         <div class="slides">
 
@@ -46,12 +64,12 @@
                         <span style="font-size: 3em;">🗣️</span>
                         <p><strong>Natural Language</strong></p>
                     </div>
-                    <div class="fragment" style="text-align: center; color: #4285F4; font-size: 2em; padding-top: 20px;">➔</div>
+                    <div class="fragment" style="text-align: center; color: #33ffcc; font-size: 2em; padding-top: 20px;">➔</div>
                     <div class="fragment" style="text-align: center;">
                         <span style="font-size: 3em;">🛠️</span>
                         <p><strong>Tool Calling</strong></p>
                     </div>
-                    <div class="fragment" style="text-align: center; color: #4285F4; font-size: 2em; padding-top: 20px;">➔</div>
+                    <div class="fragment" style="text-align: center; color: #33ffcc; font-size: 2em; padding-top: 20px;">➔</div>
                     <div class="fragment" style="text-align: center;">
                         <span style="font-size: 3em;">⚙️</span>
                         <p><strong>Automated Action</strong></p>
@@ -133,7 +151,7 @@ async function handleChat(userInput) {
   return result.response.text();
 }
                     </code></pre>
-                    <div class="fragment" style="font-size: 0.6em; background: #444; padding: 10px; border-radius: 5px;">
+                    <div class="fragment" style="font-size: 0.6em; background: #1a1a2e; padding: 10px; border-radius: 5px; border: 1px solid #33ffcc;">
                         <span class="highlight">Action:</span> The code then executes the <code>handleAssistantScript</code> function with the parameters.
                     </div>
                 </section>
@@ -142,7 +160,7 @@ async function handleChat(userInput) {
             <section>
                 <h2>User Experience: The Assistant</h2>
                 <div style="display: flex; align-items: flex-start; gap: 20px;">
-                    <div style="flex: 1; background: #222; padding: 20px; border-radius: 10px; border: 1px solid #4285F4;">
+                    <div style="flex: 1; background: #1a1a2e; padding: 20px; border-radius: 10px; border: 1px solid #33ffcc;">
                         <div class="chat-bubble bot fragment">Hi! How can I help?</div>
                         <div class="chat-bubble user fragment">Write a 5 scene script for ...</div>
                         <div class="chat-bubble bot fragment">... ⚙️</div>
@@ -195,8 +213,9 @@ async function handleChat(userInput) {
                     <li class="fragment"><strong>Content Creation Assistant:</strong> Agent creates and posts social media content for you.</li>
                     <li class="fragment"><strong>Web Search:</strong> Agent searches the web to answer questions or provide information.</li>                    
                     <li class="fragment"><strong>Calendar Management:</strong> Agent schedules your meetings on your calendar.</li>                    
-                    <li class="fragment"><strong>Portfolio Manager:</strong> Agent calls a <code>trade_crypto()</code> tool to execute buy/sell orders based on a strategy.</li>                    
                     <li class="fragment"><strong>Data Scientist:</strong> Agent uses a <code>run_python()</code> tool to generate charts, run regressions, and analyze the results.</li>
+                    <li class="fragment"><strong>Portfolio Manager:</strong> Agent calls a <code>trade_crypto()</code> tool to execute buy/sell orders based on a strategy.</li>                    
+
                 </ul>
             </section>
 
@@ -224,5 +243,6 @@ async function handleChat(userInput) {
             center: true
         });
     </script>
+
 </body>
 </html>
