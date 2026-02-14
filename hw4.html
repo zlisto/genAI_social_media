@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 4 - Generative AI and Social Media</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .assignment-box { text-align: left; margin-bottom: 40px; }
+    .assignment-box p { text-align: justify; }
+    .grading-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .grading-table th, .grading-table td { border: 1px solid #ddd; padding: 12px; }
+    .grading-table th { background-color: #f2f2f2; font-weight: bold; }
+    pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
+    .highlight { color: #d9534f; font-weight: bold; }
+    .critical-note { background-color: #fff3cd; padding: 15px; border-left: 6px solid #ffecb5; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+    </ul>
+  </nav>
+
+  <main style="max-width: 800px; margin: auto; padding: 20px;">
+    <h1 class="schedule-header">Homework 4: AI Reel Maker with AI Chat Tools</h1>
+
+    <div class="assignment-box">
+      <p>In this assignment, you will add features and AI chat tools to a reel generator app.</p>
+      
+      <p>Clone the reel maker app (<a href="https://github.com/zlisto/reel_maker.git" target="_blank">[GitHub]</a>), then implement the following features:</p>
+
+      <div class="critical-note">
+        <strong>Important Tool Requirement:</strong> For every <strong>Chat Tool</strong> 
+        implemented (Tasks 4-7), you must explicitly define and describe its purpose 
+        in <code>public/chat_prompt.txt</code>. This helps the AI understand what tools are available to it.
+      </div>
+
+      <h2>Task Instructions</h2>    
+      <ol>
+        <li><strong>Smart Chat Context:</strong> Load the generated script (descriptions and narrations for every scene) into the chat context. 
+            The AI should be able to reference and suggest improvements to the specific content of your movie.  
+            Test the chat tool by generating a movie script and asking it to suggest improvements to the generated script.</li>
+
+        <li><strong>Translation Feature (UI):</strong> Add a translation suite to the scene editor:
+          <ul>
+            <li>A dropdown menu to select target languages.</li>
+            <li>A "Translate" button that triggers AI translation of all narrations.</li>
+            <li>A toggle switch to view the "Original" vs. "Translated" text in the text boxes.</li>
+            <li>Include language options from all human-inhabited continents. Points will be deducted if you miss a continent.</li>
+          </ul>
+        </li>
+
+        <li><strong>YouTube Metadata Suite (UI):</strong> Create a YouTube metadata section with:
+          <ul>
+            <li><strong>Title &amp; Description:</strong> Buttons to generate (with AI) a YouTube Title and Description for the movie.
+            Display the title and description in the UI. Ensure the AI uses the script and images as context to generate them.</li>
+            <li><strong>Thumbnail:</strong> A dropdown for image model selection (cheap or expensive model), a Generate Image button, and a display for the resulting image.
+                Ensure the AI uses the script and images as context to generate the image.</li>
+          </ul>
+        </li>
+
+        <li><strong>Chat Tool: <code>translateNarrations</code>:</strong> Create a chat tool that allows the user to translate the narrations
+            via chat and update the narration boxes with the translated text.</li>
+
+        <li><strong>Chat Tool: <code>generateYouTubeTitle</code>:</strong> Create a chat tool that generates a catchy title based on the script and images as context via chat.</li>
+
+        <li><strong>Chat Tool: <code>generateYouTubeDescription</code>:</strong> Create a chat tool that generates a description based on the script and images as context via chat.</li>
+
+        <li><strong>Chat Tool: <code>generateYouTubeThumbnail</code>:</strong> Create a chat tool that generates a thumbnail image based on the script and images as context via chat.</li>
+      </ol>
+      <p><em>Make sure each YouTube chat tool displays the output in the app.</em></p>
+
+      <h2>Submission Checklist</h2>
+      <p>Zip <strong>ONLY</strong> the following into <code>hw4.zip</code>. Submitting <code>node_modules</code> will result in a heavy penalty.
+      Ensure your zip file is not too large.</p>
+      <ul>
+        <li><code>public/chat_prompt.txt</code> (updated with all tool descriptions).</li>
+        <li>The entire <code>src/</code> folder (including all components and tools).</li>
+      </ul>
+    </div>
+
+    <div class="assignment-box">
+      <h2>Grading Breakdown (100 Points)</h2>
+      <table class="grading-table">
+        <thead>
+          <tr><th>Task Component</th><th>Points</th><th>Requirement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. Smart Context</td><td>15</td><td>Full script is passed to chat; AI can answer questions about specific scenes.</td></tr>
+          <tr><td>2. Translation UI</td><td>20</td><td>Dropdown, AI-logic for translation, and Original/Translated toggle all functional.  
+                    Languages from all human-inhabited continents are included.</td></tr>
+          <tr><td>3. YouTube UI Suite</td><td>20</td><td>Title, Description, and Thumbnail generation buttons work and display results in the UI.</td></tr>
+          <tr><td>4. Translation Chat Tool</td><td>15</td><td>Tool is functional and is defined in code and mentioned in <code>public/chat_prompt.txt</code>.</td></tr>
+          <tr><td>5. YouTube Chat Tools</td><td>20</td><td>Title, Description, and Thumbnail tools are functional, defined in code, mentioned in <code>public/chat_prompt.txt</code>, 
+            use the script and images as context, and display output in the app.</td></tr>
+          <tr><td>6. Proper Submission</td><td>10</td><td>Zip contains only <code>public/chat_prompt.txt</code> and the complete <code>src/</code> directory.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
