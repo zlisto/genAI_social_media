@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 5 - Youtube AI Chat Assistant</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .assignment-box { text-align: left; margin-bottom: 40px; }
+    .assignment-box p { text-align: justify; }
+    .grading-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .grading-table th, .grading-table td { border: 1px solid #ddd; padding: 12px; }
+    .grading-table th { background-color: #f2f2f2; font-weight: bold; }
+    pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
+    .highlight { color: #d9534f; font-weight: bold; }
+    .critical-note { background-color: #fff3cd; padding: 15px; border-left: 6px solid #ffecb5; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+    </ul>
+  </nav>
+
+  <main style="max-width: 800px; margin: auto; padding: 20px;">
+    <h1 class="schedule-header">Homework 5: Youtube AI Chat Assistant</h1>
+
+    <div class="assignment-box">
+      <p>In this assignment, you will add features and AI chat tools to the chat app from class
+        to make it a Youtube AI Chat Assistant.</p>
+      
+      <p>Clone the chat app (<a href="https://github.com/zlisto/chatapp_websearch_code" target="_blank">[GitHub]</a>), 
+        then implement the following features:</p>
+
+      <div class="critical-note">
+        <strong>Important Tool Requirement:</strong> For every <strong>Chat Tool</strong> 
+        implemented, you must explicitly define and describe its purpose 
+        in <code>public/prompt_chat.txt</code>. This helps the AI understand what tools are available to it.
+      </div>
+
+      <div class="critical-note">
+        <strong>Required Tool Names (use these exact names for grading):</strong>
+        <ul style="margin: 0.5rem 0 0 1rem; padding-left: 1rem;">
+          <li><code>generateImage</code> — image generation from text prompt and anchor image</li>
+          <li><code>plot_metric_vs_time</code> — plot any numeric field (views, likes, comments, etc.) vs time for channel videos</li>
+          <li><code>play_video</code> — play a video from channel data (title + thumbnail, opens in new tab)</li>
+          <li><code>compute_stats_json</code> — mean, median, std, min, max for any numeric field in channel JSON</li>
+        </ul>
+      </div>
+
+      <h2>Task Instructions</h2>    
+      <ol>
+        <li><strong>Chat personalization:</strong>
+            <ul>
+              <li>Add First Name and Last Name to the Create Account form.</li>
+              <li>Save the first and last name in the database.</li>
+              <li>After logging in, put the first and last name in the chat context so the AI knows who they are talking to.</li>
+              <li>Change the system prompt so the AI addresses the user by name in the first message.</li>
+            </ul>
+        </li>
+
+        <li><strong>YouTube Channel Data Download Tab:</strong>
+            <ul>
+              <li>After logging in, add a tab to the app called "YouTube Channel Download".</li>
+              <li>On this page the user can enter a URL of a YouTube channel page (e.g. https://www.youtube.com/@veritasium).</li>
+              <li>There is a Download Channel Data button and a max videos input field (default 10, max 100).</li>
+              <li>When clicked, the app downloads metadata for the channel videos, including title, description, transcript (if available), 
+              duration, release date, view count, like count, comment count, and video URL for the max number of videos the user specifies. 
+              The data is saved to a JSON file that can be downloaded by the user.</li>
+              <li>Display a progress bar while downloading.</li>
+              <li>Download the channel data for 10 videos from  https://www.youtube.com/@veritasium and save it to your public folder so you (and the grader) know it works.</li>
+            </ul>
+        </li>
+
+        <li><strong>JSON chat input:</strong>
+            <ul>
+              <li>Allow the user to drag the JSON file into the chat and load it into the conversation context.</li>
+              <li>Save it locally so you can run code on it later.</li>
+              <li>Update the system prompt so the AI knows how to deal with JSON files.</li>
+            </ul>
+        </li>
+
+        <li><strong>Chat Tool: <code>generateImage</code>:</strong>
+            <ul>
+              <li>Allow the user to generate an image in the chat based on a text prompt and an anchor image dragged in.</li>
+              <li>Display the image in the chat.</li>
+              <li>Make it so you can download the image and when you click on it, it enlarges to be easier to see.</li>
+              <li>Described in <code>prompt_chat.txt</code>.</li>
+            </ul>
+        </li>
+
+        <li><strong>Chat Tool: <code>plot_metric_vs_time</code>:</strong>
+            <ul>
+              <li>Create a chat tool that allows the user to plot any numeric field (views, likes, comments, etc.) vs time for the channel videos via chat.</li>
+              <li>Make the plot a React component displayed in the chat.</li>
+              <li>When the user clicks on the plot it enlarges to be easier to see and has a download button.</li>
+              <li>Described in <code>prompt_chat.txt</code>.</li>
+            </ul>
+        </li>
+
+        <li><strong>Chat Tool: <code>play_video</code>:</strong>
+            <ul>
+              <li>Create a chat tool that allows the user to play a YouTube video in the chat.</li>
+              <li>When the user asks to "play" or "open" a video from the loaded channel data, display a clickable card with the video title and thumbnail.</li>
+              <li>Clicking opens the video in a new tab on YouTube.</li>
+              <li>The user can specify which video by title (e.g. "play the asbestos video"), ordinal (e.g. "play the first video"), or "most viewed".</li>
+              <li>Described in <code>prompt_chat.txt</code>.</li>
+            </ul>
+        </li>
+
+        <li><strong>Chat Tool: <code>compute_stats_json</code>:</strong>
+            <ul>
+              <li>Create a chat tool that computes mean, median, std, min, and max for any numeric field in the channel JSON (e.g. view_count, like_count, comment_count, duration).</li>
+              <li>Call it when the user asks for statistics, average, or distribution of a numeric column.</li>
+              <li>Described in <code>prompt_chat.txt</code>.</li>
+            </ul>
+        </li>
+
+        <li><strong>Prompt engineering:</strong>
+            <ul>
+              <li>Update the system prompt in <code>prompt_chat.txt</code> to tell the AI it is a YouTube analyze assistant.</li>
+              <li>The prompt should explain that the AI will receive JSON files of YouTube channel data.</li>
+              <li>The prompt should explain that the AI has access to tools to analyze the data and generate content.</li>
+            </ul>
+        </li>
+      </ol>
+
+
+
+      <h2>Submission Checklist</h2>
+      <p>Push your code to your GitHub repository and submit the URL to the assignment on Canvas.</p>
+      </div>
+
+    <div class="assignment-box">
+      <h2>Grading Breakdown (100 Points)</h2>
+      <table class="grading-table">
+        <thead>
+          <tr><th>Task Component</th><th>Points</th><th>Requirement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. Chat personalization</td><td>10</td><td>First Name and Last Name are added to the Create Account form, saved in the database, and used in the chat context.</td></tr>
+          <tr><td>2. YouTube Channel Data Download Tab</td><td>20</td><td>Tab is functional with URL input, max videos field, progress bar, and JSON download.</td></tr>
+          <tr><td>3. JSON chat input</td><td>10</td><td>User can drag JSON into chat; it loads into context and is available for code execution. Described in <code>prompt_chat.txt</code>.</td></tr>
+          <tr><td>4. Chat Tool: <code>generateImage</code></td><td>10</td><td>Image generation from text prompt and anchor image works; images display in chat with download and lightbox. Described in <code>prompt_chat.txt</code>.</td></tr>
+          <tr><td>5. Chat Tool: <code>plot_metric_vs_time</code></td><td>15</td><td>Plot metric vs time tool works with channel JSON; chart is a React component displayed in chat with enlarge and download. Described in <code>prompt_chat.txt</code>.</td></tr>
+          <tr><td>6. Chat Tool: <code>play_video</code></td><td>15</td><td>Play video tool shows video title and thumbnail; click opens in new tab. Described in <code>prompt_chat.txt</code>.</td></tr>
+          <tr><td>7. Chat Tool: <code>compute_stats_json</code></td><td>10</td><td>Stats tool computes mean, median, std, min, max for numeric fields in channel JSON. Described in <code>prompt_chat.txt</code>.</td></tr>
+          <tr><td>8. Prompt engineering</td><td>5</td><td>System prompt tells the AI it is a YouTube analyze assistant, will receive JSON files of channel data, and has tools to analyze data and generate content.</td></tr>
+          <tr><td>9. Proper Submission</td><td>5</td><td>Code is pushed to GitHub and the URL is submitted to the assignment on Canvas.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
