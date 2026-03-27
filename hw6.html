@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 6 - Project Proposal &amp; Storyboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .assignment-box { text-align: left; margin-bottom: 40px; }
+    .assignment-box p { text-align: justify; }
+    .grading-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .grading-table th, .grading-table td { border: 1px solid #ddd; padding: 12px; vertical-align: top; }
+    .grading-table th { background-color: #f2f2f2; font-weight: bold; }
+    pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    pre.folder-tree {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      white-space: pre;
+      margin: 1rem 0;
+    }
+    .highlight { color: #d9534f; font-weight: bold; }
+    .critical-note { background-color: #fff3cd; padding: 15px; border-left: 6px solid #ffecb5; margin: 20px 0; }
+    .bonus-note { background-color: #e7f3ff; padding: 15px; border-left: 6px solid #b8daff; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+    </ul>
+  </nav>
+
+  <main style="max-width: 800px; margin: auto; padding: 20px;">
+    <h1 class="schedule-header">Homework 6: Project Proposal &amp; Social Storyboard</h1>
+
+    <div class="assignment-box">
+      <p>
+        In this assignment you will produce a <strong>single-page project proposal</strong> as an HTML file
+        for your final course project (for example, an AI language tutor agent that generates lesson plans,
+        teaches you grammar, vocabulary, and pronunciation, and helps you practice speaking and listening).
+        You will also design a <strong>storyboard for a short social-media hype video</strong> (TikTok / Reels style)
+        that could promote your project.
+      </p>
+
+      <div class="critical-note">
+        <strong>Storyboard workflow (optional but recommended):</strong>
+        You may use the <strong>Jarvis-style video / movie agent pipeline from
+        <a href="lectures.html#lecture-14">Lecture 14: AI Movie Generation</a></strong>
+        (scene planning, narration, image generation, and stitched output) to draft your storyboard text,
+        scene images, and optional final video—similar to the <code>storyboard.html</code> examples under
+        <code>lecture_14/projects/</code>. You are not required to use every step of the pipeline; a hand-built
+        storyboard is fine as long as it meets the requirements below.
+      </div>
+
+      <div class="bonus-note">
+        <strong>Bonus (+5 points):</strong>
+        Export or render an actual <strong>video file</strong> (for example <code>.mp4</code>) for your hype reel
+        and place it <strong>directly inside</strong> <code>hw_6_project_proposal</code> (same level as your HTML file)—
+        <strong>not</strong> inside an <code>assets/</code> or other subfolder. The grader must be able to play it with a normal media player.
+      </div>
+
+      <h2>Deliverables &amp; folder layout</h2>
+      <p>
+        Create a folder named exactly <code class="highlight">hw_6_project_proposal</code>, put all deliverables inside it, then <strong>zip that folder</strong> and upload the zip to the Canvas assignment. (Do not submit a GitHub link unless the instructor asks for one separately.)
+      </p>
+      <p>
+        Example layout for a submission with <strong>three</strong> storyboard scenes (one anchor still per scene; your HTML filename and image names may differ—keep paths consistent in your code):
+      </p>
+      <pre class="folder-tree">hw_6_project_proposal/
+├── index.html
+├── scene_01.png           ← anchor image, scene 1
+├── scene_02.png           ← anchor image, scene 2
+├── scene_03.png           ← anchor image, scene 3
+└── hype_reel.mp4          ← optional (+5 bonus only)</pre>
+      <p style="font-size: 0.95rem; color: #555; margin-top: 0.25rem;">
+        Put <code>hype_reel.mp4</code> in the folder root only if you submit the bonus video; otherwise omit it. Do not nest these files in subfolders.
+      </p>
+      <p><strong>Inside the folder you must include:</strong></p>
+      <ul>
+        <li>Your main proposal page as an HTML file (e.g. <code>index.html</code>).</li>
+        <li>One <strong>anchor image file per storyboard scene</strong> (e.g. <code>scene_01.png</code>, …), referenced from your HTML—use relative paths so the page works when opened locally or hosted.</li>
+        <li>If you complete the bonus: your <strong>video</strong> file (e.g. <code>hype_reel.mp4</code>) in the <strong>root</strong> of <code>hw_6_project_proposal</code> only—do not put the video in a subfolder.</li>
+      </ul>
+      <h2>Page requirements</h2>
+      <ol>
+        <li>
+          <strong>Header:</strong> A clear <strong>project title</strong> and a <strong>catchy subtitle</strong> (one line that sells the idea).
+        </li>
+        <li>
+          <strong>Tabbed interface:</strong> The page must have <strong>three and only three</strong> tabs, labeled exactly <strong>Overview</strong>, <strong>Team</strong>, and <strong>Storyboard</strong>
+          (same spelling and capitalization—no synonyms, no fourth tab, no extra tabs such as “Home” or “About”).
+          Implement switching with JavaScript or a similar approach so that <strong>only one</strong> panel is visible at a time; clicking a tab shows that section’s content and hides the other two until the user switches again.
+        </li>
+        <li>
+          <strong>Overview tab:</strong>
+          <ul>
+            <li>Two to three paragraphs, <span class="highlight">justified</span> in purpose: (a) <strong>motivation</strong>—what problem you are solving; (b) <strong>business or user value</strong>—who benefits and how; (c) <strong>components you will build</strong>—concrete pieces (UI, APIs, models, data, voice, etc.).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Team tab:</strong> Show your group’s <strong>team name</strong>—something <strong>unique and creative</strong> (one name per team), displayed clearly above or beside the roster (for example a heading or labeled line, not buried in the table). Below that, include a table with columns <strong>First name</strong>, <strong>Last name</strong>, <strong>Email</strong>, and <strong>SIS ID</strong> (format like <code>abc123</code>), one row per team member.
+        </li>
+        <li>
+          <strong>Storyboard tab:</strong> A storyboard for a short vertical-style social video (~30 seconds is a good target) with <strong>at least three scenes</strong>.
+          Present it in a <strong>single HTML table</strong> with (at minimum) these columns: <strong>anchor image</strong> (or “Image”), <strong>scene description</strong>, and <strong>narration</strong>.
+          For <strong>each scene</strong>, include one <strong>anchor image</strong>—the key still for that beat (your own generated art, stock, or Lecture-14-style renders)—embedded in the table cell, with the image file shipped in your submission folder.
+          The <strong>scene description</strong> column should cover shot type, setting, and action; the <strong>narration</strong> column is the on-screen or voice-over text. See <code>lecture_14/projects/.../storyboard.html</code> for a matching layout.
+        </li>
+        <li>
+          <strong>Visual design:</strong> Deliberate <strong>typography and color</strong>—readable body text, consistent headings, enough whitespace, and a cohesive palette. Avoid “default browser Times on stark white with no structure” unless you are intentionally minimal and still polished.
+        </li>
+      </ol>
+
+      <h2>Submission checklist</h2>
+      <ul>
+        <li>Folder named <code>hw_6_project_proposal</code> with working HTML, <strong>exactly three tabs</strong> labeled <strong>Overview</strong>, <strong>Team</strong>, and <strong>Storyboard</strong> (Team tab includes a creative <strong>team name</strong> plus the roster table), and all <strong>anchor images</strong> for the storyboard table.</li>
+        <li>Zip file of <code>hw_6_project_proposal</code> uploaded to Canvas.</li>
+        <li>Optional: video file (<code>.mp4</code> or similar) in the <strong>root</strong> of the folder for <strong>+5 bonus</strong> points.</li>
+      </ul>
+    </div>
+
+    <div class="assignment-box">
+      <h2>Grading breakdown (100 points + 5 bonus)</h2>
+      <table class="grading-table">
+        <thead>
+          <tr><th>Task component</th><th>Points</th><th>Requirement</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Header: title &amp; subtitle</td>
+            <td>8</td>
+            <td>Clear project title and a catchy one-line subtitle visible at the top of the page.</td>
+          </tr>
+          <tr>
+            <td>2. Tabbed interface</td>
+            <td>14</td>
+            <td><strong>Exactly three</strong> tabs, labeled <strong>Overview</strong>, <strong>Team</strong>, and <strong>Storyboard</strong> (exact names); panel switching works so only one section shows at a time.</td>
+          </tr>
+          <tr>
+            <td>3. Overview content</td>
+            <td>26</td>
+            <td>Two to three well-written paragraphs covering motivation, user/business value, and planned components to build.</td>
+          </tr>
+          <tr>
+            <td>4. Team roster</td>
+            <td>10</td>
+            <td>Visible <strong>team name</strong> (unique, creative); table with First name, Last name, Email, and SIS ID; all teammates listed accurately.</td>
+          </tr>
+          <tr>
+            <td>5. Storyboard</td>
+            <td>22</td>
+            <td>At least three scenes; <strong>table</strong> with anchor image, scene description, and narration columns; one <strong>anchor image per scene</strong> in the folder; content fits a social hype video.</td>
+          </tr>
+          <tr>
+            <td>6. Visual design &amp; formatting</td>
+            <td>15</td>
+            <td>Intentional fonts/colors/layout; readable and professional—not cluttered or “unfinished default” styling.</td>
+          </tr>
+          <tr>
+            <td>7. Submission package</td>
+            <td>5</td>
+            <td>Correct folder name (<code>hw_6_project_proposal</code>), relative links work, all assets present; zip uploaded to Canvas.</td>
+          </tr>
+          <tr>
+            <td><strong>Bonus: video file</strong></td>
+            <td><strong>+5</strong></td>
+            <td>Playable video file (e.g. <code>.mp4</code>) for the hype reel, placed in the <strong>root</strong> of <code>hw_6_project_proposal</code> (not in a subfolder).</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 12px;"><strong>Total core:</strong> 100 points. Maximum with bonus: 105.</p>
+    </div>
+  </main>
+</body>
+</html>
