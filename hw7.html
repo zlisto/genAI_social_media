@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 7 - Lecture Agents, Narration &amp; Video</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .assignment-box { text-align: left; margin-bottom: 40px; }
+    .assignment-box p { text-align: justify; }
+    .grading-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .grading-table th, .grading-table td { border: 1px solid #ddd; padding: 12px; vertical-align: top; }
+    .grading-table th { background-color: #f2f2f2; font-weight: bold; }
+    pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    pre.folder-tree {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      white-space: pre;
+      margin: 1rem 0;
+    }
+    .highlight { color: #d9534f; font-weight: bold; }
+    .critical-note { background-color: #fff3cd; padding: 15px; border-left: 6px solid #ffecb5; margin: 20px 0; }
+    .bonus-note { background-color: #e7f3ff; padding: 15px; border-left: 6px solid #b8daff; margin: 20px 0; }
+    .resource-links { margin: 0.75rem 0 1.25rem; padding-left: 1.25rem; }
+    .resource-links li { margin: 0.35rem 0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html" target="_blank" rel="noopener noreferrer">Home</a></li>
+      <li><a href="instructions.html" target="_blank" rel="noopener noreferrer">Instructions</a></li>
+      <li><a href="lectures.html" target="_blank" rel="noopener noreferrer">Lectures</a></li>
+      <li><a href="homeworks.html" target="_blank" rel="noopener noreferrer">Homeworks</a></li>
+    </ul>
+  </nav>
+
+  <main style="max-width: 800px; margin: auto; padding: 20px;">
+    <h1 class="schedule-header">Homework 7: Agentic Video Lecture Pipeline</h1>
+
+    <div class="assignment-box">
+      <p>
+        In this assignment you will implement a <strong>multi-stage pipeline</strong> that turns a PDF slide deck
+        into a <strong>single narrated video</strong> when run locally: one still per slide, synchronized audio, concatenated into one
+        <code>.mp4</code>. You will use <strong>AI agents</strong> for structured steps (style profile, slide descriptions, premise, arc, narration), then <strong>text-to-speech</strong> and <strong>video assembly</strong> (for example with ffmpeg). Your narration should match the speaking style derived from the lecture transcript.
+      </p>
+
+      <h2>Deliverables</h2>
+      <p>
+        Create a Git repository with Python code that implements the following pipeline:
+      </p>
+      <ol>
+        <li>
+          <strong>Style file</strong> — Read the transcript file
+          <a href="slides_pdf/MGT 575 01-02 (SP26)_  Generative AI and Social Media Lecture 11 Section 2_Captions_English (United States).txt" target="_blank" rel="noopener noreferrer">MGT 575 … Lecture 11 Section 2 captions</a>
+          and produce <code>style.json</code> in the <strong>repository root</strong>: a structured description of the instructor’s speaking style (tone, pacing, fillers, how they frame ideas—fields you choose). This file informs the narration agent.
+        </li>
+        <li>
+          <strong><code>projects/</code> folder</strong> — At the repo root, include a <code>projects/</code> directory. Each new project goes here.
+        </li>
+        <li>
+          <strong>Slide description agent</strong> — Create a new project folder <code>projects/project_&lt;current date and time&gt;</code>. Rasterize the <a href="slides_pdf/Lecture_17_AI_screenplays.pdf" target="_blank" rel="noopener noreferrer">Lecture 17 slides</a> to one PNG per slide under <code>slide_images/</code> inside that project. For each slide, call the AI model with the current slide image and <strong>all previous slide descriptions</strong> as input to generate the current slide description. Write every slide description to <code>slide_description.json</code> in the project folder.
+        </li>
+        <li>
+          <strong>Premise agent</strong> — Call the AI model with <code>slide_description.json</code> as input and write <code>premise.json</code>: a structured lecture premise (thesis, scope, learning objectives, audience, or fields you define).
+        </li>
+        <li>
+          <strong>Arc agent</strong> — Call the AI model with <code>premise.json</code> and <code>slide_description.json</code> as input and write <code>arc.json</code>: structured arc (flow, phases or acts, how ideas build—consistent with the premise).
+        </li>
+        <li>
+          <strong>Narration agent</strong> — For each slide, call the AI model with the current slide image, <code>style.json</code>, <code>premise.json</code>, <code>arc.json</code>, <code>slide_description.json</code>, and <strong>all prior slide narrations</strong> to generate the current slide narration. Write <code>slide_description_narration.json</code> in the project folder, containing both narrations and the associated slide descriptions. On the title slide, the narration should have the speaker introduce themselves and give a short summary of the lecture topic.
+        </li>
+        <li>
+          <strong>Audio step</strong> — Use a text-to-speech model (Gemini, ElevenLabs, etc.) to synthesize each narration into <code>audio/slide_001.mp3</code>, <code>audio/slide_002.mp3</code>, etc. (merge chunked API responses into one MP3 per slide if needed). Store files under an <code>audio/</code> folder inside the project folder.
+        </li>
+        <li>
+          <strong>Video assembly step</strong> — For each slide, mux the PNG with the matching MP3 into a video segment, then concatenate into one <code>.mp4</code> whose basename matches the PDF (e.g. <code>Lecture_17_AI_screenplays.pdf</code> → <code>Lecture_17_AI_screenplays.mp4</code>). Segment duration should track the audio (avoid long silent tails).
+        </li>
+      </ol>
+
+      <h2>Submission</h2>
+      <p>
+        <strong>Canvas:</strong> Submit the <strong>URL of a GitHub repository</strong> with your <strong>Python</strong> implementation. Do not include any image, MP3, or MP4 files in your repo (they are not needed for grading and the files are too large).
+      </p>
+      <p>
+        Your repository should have this structure (image, audio, and video files should not be included, but empty <code>slide_images/</code> and <code>audio/</code> folders are OK). Put <strong><code>Lecture_17_AI_screenplays.pdf</code></strong> in the <strong>repository root</strong> so the grader can run your pipeline without hunting for the deck.
+      </p>
+      <pre class="folder-tree">your-repo/
+├── README.md
+├── style.json
+├── Lecture_17_AI_screenplays.pdf
+├── requirements.txt
+├── run_lecture_pipeline.py    (your entrypoint for the agentic flow)
+├── lecture_agents/            (your agent code)
+└── projects/
+    └── project_YYYYMMDD_HHMMSS/
+        ├── premise.json
+        ├── arc.json
+        ├── slide_description.json
+        └── slide_description_narration.json</pre>
+      <p style="font-size: 0.95rem; color: #555; margin-top: 0.25rem;">
+        <code>slide_images/</code>, <code>audio/</code>, and the final <code>.mp4</code> are produced when the pipeline runs; they should be listed in <code>.gitignore</code> to avoid committing large files.
+      </p>
+
+
+    </div>
+
+    <div class="assignment-box">
+      <h2>Grading breakdown (100 points)</h2>
+      <p>
+        Each row states what that stage takes as input and what it produces. Points may be deducted if required inputs are missing (per code review or when the grader runs the pipeline).
+      </p>
+      <table class="grading-table">
+        <thead>
+          <tr><th>Component</th><th>Points</th><th>Requirement</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Style file</td>
+            <td>8</td>
+            <td>
+              Agent takes instructor lecture caption/transcript file (linked “Lecture 11 Section 2” captions) as input. Agent produces <code>style.json</code> at repo root; content reflects that transcript.
+            </td>
+          </tr>
+          <tr>
+            <td>2. Slide description agent</td>
+            <td>18</td>
+            <td>
+              Agent takes the lecture deck rasterized from the PDF to per-slide images, the <strong>current slide image</strong>, and <strong>all previous slide descriptions</strong> in the model context each time as input. Agent produces <code>slide_description.json</code> covering all slides; prior-description chaining must be real, not missing or trivial.
+            </td>
+          </tr>
+          <tr>
+            <td>3. Premise agent</td>
+            <td>10</td>
+            <td>
+              Agent takes the entire <code>slide_description.json</code> document as input. Agent produces <code>premise.json</code>: a structured premise grounded in the deck, used by later stages.
+            </td>
+          </tr>
+          <tr>
+            <td>4. Arc agent</td>
+            <td>10</td>
+            <td>
+              Agent takes <code>premise.json</code> and <code>slide_description.json</code> as input. Agent produces <code>arc.json</code> that is consistent with the premise and slide content and that supports coherent progression across the deck.
+            </td>
+          </tr>
+          <tr>
+            <td>5. Narration agent</td>
+            <td>18</td>
+            <td>
+              Agent takes the <strong>current slide image</strong>, <code>style.json</code>, <code>premise.json</code>, <code>arc.json</code>, <code>slide_description.json</code>, and <strong>all prior slide narrations</strong> (none for slide 1) as input. Agent produces <code>slide_description_narration.json</code> with per-slide narration and associated slide descriptions. The title slide uses a specialized narration in which the speaker introduces themselves and gives an overview of the lecture topic.
+            </td>
+          </tr>
+          <tr>
+            <td>6. Audio step</td>
+            <td>14</td>
+            <td>
+              Audio step takes per-slide narration strings from <code>slide_description_narration.json</code> as input. Audio step produces <code>audio/slide_NNN.mp3</code> for each slide (merge chunked API responses into one file per slide if needed); any TTS provider allowed.
+            </td>
+          </tr>
+          <tr>
+            <td>7. Video assembly</td>
+            <td>12</td>
+            <td>
+              Video assembly takes matching per-slide PNGs under <code>slide_images/</code> and per-slide MP3s under <code>audio/</code> (same indices) as input. Video assembly produces one <code>.mp4</code> for the whole lecture with basename matching the PDF, one segment per slide, with duration following the audio (no long silent tail after speech on each segment).
+            </td>
+          </tr>
+          <tr>
+            <td>8. Repo &amp; JSON package</td>
+            <td>10</td>
+            <td>
+              GitHub repo contains all code, all JSON files for the project, and a <code>README.md</code> explaining how to set up and run the agents. The repo does not include any image, audio, or video files.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 12px;"><strong>Total:</strong> 100 points.</p>
+    </div>
+  </main>
+</body>
+</html>
