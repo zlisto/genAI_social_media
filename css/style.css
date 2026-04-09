@@ -63,6 +63,65 @@ h1, h2 {
   text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff1ab3;
 }
 
+h3 {
+  color: #ff66cc;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  text-shadow: 0 0 4px #ff66cc;
+  margin: 1.25rem 0 0.5rem;
+}
+
+/* Long-form pages (e.g. final project guide): readable column, left-aligned body */
+main.main-narrow {
+  max-width: 52rem;
+  margin: 0 auto;
+  text-align: left;
+}
+
+main.main-narrow > h1,
+main.main-narrow > .page-subtitle {
+  text-align: center;
+}
+
+.page-subtitle {
+  color: #ff99cc;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+
+.assignment-box strong {
+  color: #ff66cc;
+}
+
+/* Section table (final project report guide) */
+.report-sections-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.report-sections-table th,
+.report-sections-table td {
+  border: 1px solid #ff66cc;
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  color: #33ffcc;
+}
+
+.report-sections-table th {
+  background-color: #1a1a2e;
+  color: #ff66cc;
+  font-weight: bold;
+  text-shadow: 0 0 4px #ff66cc;
+}
+
+.report-sections-table td strong {
+  color: #ff66cc;
+}
+
 p, li, ul {
   font-size: 18px;
   line-height: 1.6;

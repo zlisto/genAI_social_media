@@ -1,95 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MGT 575 — Final Project Report Guide</title>
-  <style>
-    :root {
-      --bg: #faf9f7;
-      --text: #1a1a1a;
-      --muted: #5c5c5c;
-      --accent: #0d47a1;
-      --border: #e0ddd6;
-      --card: #fff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: var(--text);
-      background: var(--bg);
-      padding: 2rem 1.25rem 3rem;
-    }
-    .wrap {
-      max-width: 42rem;
-      margin: 0 auto;
-    }
-    h1 {
-      font-size: 1.65rem;
-      font-weight: 700;
-      margin: 0 0 0.35rem;
-      line-height: 1.25;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.75rem;
-    }
-    h2 {
-      font-size: 1.2rem;
-      margin: 2rem 0 0.65rem;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.25rem;
-    }
-    h3 {
-      font-size: 1.05rem;
-      margin: 1.25rem 0 0.5rem;
-    }
-    p, li { margin: 0.5rem 0; }
-    ul, ol { padding-left: 1.35rem; }
-    li { margin: 0.35rem 0; }
-    .callout {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1rem 1.15rem;
-      margin: 1.25rem 0;
-    }
-    .callout strong { color: var(--accent); }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.92rem;
-      margin: 1rem 0;
-    }
-    th, td {
-      border: 1px solid var(--border);
-      padding: 0.5rem 0.65rem;
-      text-align: left;
-      vertical-align: top;
-    }
-    th { background: #f0eeea; }
-    code, .mono {
-      font-family: ui-monospace, Consolas, monospace;
-      font-size: 0.88em;
-    }
-    a { color: var(--accent); }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Project - Generative AI and Social Media</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="wrap">
-    <h1>Final project — written report structure</h1>
-    <p class="subtitle">Generative AI and Social Media · written report guide</p>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+      <li><a href="project_requirements.html">Final Project</a></li>
+    </ul>
+  </nav>
 
-    <div class="callout">
-      <strong>Syllabus reminder.</strong> The final project is either (1) analysis of a <em>social media dataset</em>
-      or (2) an <em>analytics-based solution</em> for a novel application. Deliverables include a
-      <strong>written report</strong>, a <strong>final presentation</strong>, and <strong>code</strong> if you built an application.
-      Teams: up to six members; topic chosen by mid-semester. Strong work is <em>creative and original</em> and leaves a lasting impression.
+  <main class="main-narrow">
+    <h1 class="schedule-header">Final project</h1>
+
+    <div class="assignment-box">
+      <p><strong>Syllabus reminder.</strong> The final project is either (1) analysis of a <em>social media dataset</em>
+        or (2) an <em>analytics-based solution</em> for a novel application. Deliverables include a
+        <strong>written report</strong>, a <strong>final presentation</strong>, and, if you built an application, <strong>code</strong> in a <strong>GitHub</strong> repository (with a clear README so someone can find and run your project).
+        Teams: up to six members; topic chosen by mid-semester. Strong work is <em>creative and original</em> and leaves a lasting impression.</p>
     </div>
 
     <h2>Report length and depth</h2>
@@ -101,9 +36,9 @@
 
     <h2>Suggested report sections</h2>
     <p>The following is a <strong>suggested</strong> way to organize the report. Adapt headings to match your project as long as the story stays clear.</p>
-    <p>Before the main body, include a <strong>title page</strong> (title, team or author, course) and an <strong>executive summary</strong> or <strong>abstract</strong>: a short opening summary (often one paragraph) stating what you did, the main takeaway, and—when you have code—the <strong>URL of your GitHub (or equivalent) repository</strong> so readers can find your project immediately. After the final main section, add <strong>references</strong>. Use <strong>appendices</strong> for extra material that would clutter the main text.</p>
+    <p>Before the main body, include a <strong>title page</strong> (title, team or author, course). After the title page, use an <strong>executive summary</strong> or <strong>abstract</strong> as described in the table below. After the final main section, add <strong>references</strong>. Use <strong>appendices</strong> for extra material that would clutter the main text.</p>
 
-    <table>
+    <table class="report-sections-table">
       <thead>
         <tr>
           <th>Suggested section</th>
@@ -111,6 +46,12 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><strong>Executive summary</strong></td>
+          <td>
+            A short opening summary (often one paragraph) right after the title page: what you did, the <strong>main takeaway</strong>, and who the work is for. If your project includes code, include the <strong>URL of your GitHub repository</strong> here so readers see it immediately; you will repeat repo details later in Implementation, but the executive summary is where graders and readers look first.
+          </td>
+        </tr>
         <tr>
           <td><strong>1. Introduction</strong></td>
           <td>
@@ -139,7 +80,7 @@
     </table>
 
     <h2>Dataset-focused projects</h2>
-    <p>If you analyze a social media dataset rather than ship an app, you can follow the <strong>same four-part flow</strong>. Put <strong>data pipeline and methods</strong> in <strong>Implementation</strong>; put <strong>figures</strong> (distributions, networks, topic models, gen-AI-assisted labeling workflows, etc.) and interpretation in <strong>Results and Analysis</strong> instead of app screenshots.</p>
+    <p>If you analyze a social media dataset rather than ship an app, you can follow the <strong>same structure</strong>: <strong>executive summary</strong> plus the four numbered sections. Put <strong>data pipeline and methods</strong> in <strong>Implementation</strong>; put <strong>figures</strong> (distributions, networks, topic models, gen-AI-assisted labeling workflows, etc.) and interpretation in <strong>Results and Analysis</strong> instead of app screenshots. If you have analysis code or notebooks in GitHub, still put that <strong>repo URL in the executive summary</strong>.</p>
 
     <h2>Final presentation</h2>
     <p>Your slides should tell the <strong>same story in about 10–15 minutes</strong>: problem → demo or key result → how AI is used → one honest limitation → what’s next. Do not paste the full report; <strong>one strong demo slide</strong> beats ten bullet walls.</p>
@@ -150,6 +91,6 @@
       <li>Number figures and tables and refer to them in the text (for example, “Figure 3 shows …”).</li>
       <li>Cite sources and tools in a consistent reference list at the end.</li>
     </ul>
-  </div>
+  </main>
 </body>
 </html>
