@@ -24,6 +24,7 @@
       <a href="#github">GitHub</a>
       <a href="#elevenlabs">ElevenLabs</a>
       <a href="#gemini">Gemini</a>
+      <a href="#latex">LaTeX</a>
     </div>
     
 
@@ -206,6 +207,74 @@ git config --list</code></pre>
         </li>
       </ol>
 
+      <h2 id="latex">LaTeX (optional for final projects)</h2>
+      <p>You may write your final project report in <strong>LaTeX</strong> instead of a word processor. LaTeX is a document preparation system: you write plain-text <code>.tex</code> files and a <em>distribution</em> (compiler plus packages) turns them into a PDF. Overview: <a href="https://www.latex-project.org/get/" target="_blank">latex-project.org/get</a>.</p>
+
+      <h3>Windows</h3>
+      <ul>
+        <li><strong>MiKTeX</strong> (widely used on Windows):
+          <ul>
+            <li>Go to <a href="https://miktex.org/download" target="_blank">miktex.org/download</a></li>
+            <li>Download the installer for Windows (64-bit is typical)</li>
+            <li>Run the installer and follow the prompts; the default options are fine for most users</li>
+            <li>The first time you build a document, MiKTeX may ask to install missing packages automatically—allow that when prompted</li>
+          </ul>
+        </li>
+        <li><strong>TeX Live</strong> (alternative full distribution): <a href="https://tug.org/texlive/windows.html" target="_blank">tug.org/texlive/windows.html</a> — download the installer and run it (install can take a while and uses several gigabytes of disk space)</li>
+      </ul>
+
+      <h3>Mac</h3>
+      <ul>
+        <li><strong>MacTeX</strong> (full distribution, large download, ~4&nbsp;GB):
+          <ul>
+            <li>Go to <a href="https://tug.org/mactex/" target="_blank">tug.org/mactex</a></li>
+            <li>Download the macOS <code>.pkg</code> file</li>
+            <li>Open the package and complete the installation wizard</li>
+            <li>After install, you can use the <strong>TeXShop</strong> app (included) or any editor you prefer</li>
+          </ul>
+        </li>
+        <li><strong>BasicTeX</strong> (smaller install; add packages as needed):
+          <ul>
+            <li>Download from <a href="https://tug.org/mactex/morepackages.html" target="_blank">tug.org/mactex/morepackages.html</a></li>
+            <li>Install the <code>.pkg</code>, then in Terminal install extra packages with <code>sudo tlmgr install &lt;package-name&gt;</code> when a build error says a package is missing</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><strong>Editors:</strong> You can edit <code>.tex</code> files in Cursor or VS Code (with a LaTeX extension such as LaTeX Workshop), or use a dedicated editor like <a href="https://www.texstudio.org/" target="_blank">TeXstudio</a>. <strong>Online option:</strong> <a href="https://www.overleaf.com/" target="_blank">Overleaf</a> runs LaTeX in the browser with no local install—useful if you prefer not to install a distribution.</p>
+
+      <h3>Running LaTeX in Cursor</h3>
+      <p>Cursor is based on VS Code. The usual way to build <code>.tex</code> files inside Cursor is the <strong>LaTeX Workshop</strong> extension, which runs tools such as <code>pdflatex</code> or <code>latexmk</code> for you. Cursor must be able to find those executables—either because their folder is on your <code>PATH</code>, or because you tell LaTeX Workshop where that folder is.</p>
+
+      <ol>
+        <li><strong>Install the extension:</strong> In Cursor, open the Extensions view (<code>Ctrl+Shift+X</code> on Windows / <code>Cmd+Shift+X</code> on Mac), search for <strong>LaTeX Workshop</strong> (by James Yu), and install it.</li>
+        <li><strong>Find the folder that contains the LaTeX programs:</strong> You want the <em>bin</em> directory that holds <code>pdflatex</code> (and often <code>latexmk</code>). Typical locations:
+          <ul>
+            <li><strong>Windows (MiKTeX):</strong> often <code>C:\Program Files\MiKTeX\miktex\bin\x64\</code> or <code>%LOCALAPPDATA%\Programs\MiKTeX\miktex\bin\x64\</code> (paste <code>%LOCALAPPDATA%</code> into the File Explorer address bar to open that folder).</li>
+            <li><strong>Windows (TeX Live):</strong> often something like <code>C:\texlive\2024\bin\windows\</code> (the year may differ).</li>
+            <li><strong>Mac (MacTeX / BasicTeX):</strong> usually <code>/Library/TeX/texbin</code> (this is a single folder that already points at the right binaries).</li>
+          </ul>
+          If you are unsure, use File Explorer or Finder to search for <code>pdflatex.exe</code> (Windows) or open Terminal and run <code>which pdflatex</code> (Mac)—the folder containing that file is the one you need.
+        </li>
+        <li><strong>Check that Cursor’s terminal sees LaTeX:</strong> Open the integrated terminal in Cursor and run:
+          <pre class="terminal"><code>pdflatex --version</code></pre>
+          If you see version information, you are done—LaTeX Workshop can usually build without extra configuration. If you get “command not found,” add the bin folder to your system or user <code>PATH</code>, then <strong>fully quit Cursor and open it again</strong> so it picks up the new <code>PATH</code>.</li>
+        <li><strong>If you prefer not to change the system <code>PATH</code>:</strong> Tell LaTeX Workshop to prepend that bin folder when it runs builds. In Cursor, open the Command Palette (<code>Ctrl+Shift+P</code> / <code>Cmd+Shift+P</code>), run <strong>Preferences: Open User Settings (JSON)</strong>, and add the block below inside the outer <code>{ }</code> (add a comma after the previous setting if required so the JSON stays valid). Replace the path with <em>your</em> actual bin folder from step 2 if it differs.</li>
+      </ol>
+
+      <p><strong>Windows</strong> (prepend MiKTeX <code>x64</code> bin; keep the rest of <code>PATH</code>). You can use forward slashes in the path—Windows accepts them and they are easier to paste into JSON:</p>
+      <pre class="terminal"><code>"latex-workshop.latex.env": {
+  "PATH": "C:/Program Files/MiKTeX/miktex/bin/x64;%PATH%"
+}</code></pre>
+
+      <p><strong>Mac</strong> (prepend MacTeX’s <code>texbin</code>):</p>
+      <pre class="terminal"><code>"latex-workshop.latex.env": {
+  "PATH": "/Library/TeX/texbin:${env:PATH}"
+}</code></pre>
+
+      <p>Save the file, reopen your <code>.tex</code> document, and use LaTeX Workshop’s build command (or the green “Build LaTeX project” actions in the editor). If the build still fails, open the LaTeX Workshop output/log panel and read the error: it usually means the path is wrong or a LaTeX package is missing from your distribution.</p>
+
+    </div>
   </div>
 
 </body>

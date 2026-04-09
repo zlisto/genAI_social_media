@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MGT 575 — Final Project Report Guide</title>
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --accent: #0d47a1;
+      --border: #e0ddd6;
+      --card: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+      padding: 2rem 1.25rem 3rem;
+    }
+    .wrap {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin: 2rem 0 0.65rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.25rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.25rem 0 0.5rem;
+    }
+    p, li { margin: 0.5rem 0; }
+    ul, ol { padding-left: 1.35rem; }
+    li { margin: 0.35rem 0; }
+    .callout {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.15rem;
+      margin: 1.25rem 0;
+    }
+    .callout strong { color: var(--accent); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.65rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f0eeea; }
+    code, .mono {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.88em;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Final project — written report structure</h1>
+    <p class="subtitle">Generative AI and Social Media · written report guide</p>
+
+    <div class="callout">
+      <strong>Syllabus reminder.</strong> The final project is either (1) analysis of a <em>social media dataset</em>
+      or (2) an <em>analytics-based solution</em> for a novel application. Deliverables include a
+      <strong>written report</strong>, a <strong>final presentation</strong>, and <strong>code</strong> if you built an application.
+      Teams: up to six members; topic chosen by mid-semester. Strong work is <em>creative and original</em> and leaves a lasting impression.
+    </div>
+
+    <h2>Report length and depth</h2>
+    <ul>
+      <li><strong>Length:</strong> about <strong>10–15 pages</strong>, <strong>single-spaced</strong> in the PDF you submit.</li>
+      <li><strong>Depth:</strong> clearly state the problem or application; provide <strong>rigorous, in-depth analysis</strong> of data
+        <em>or</em> a <strong>detailed examination</strong> of your proposed solution (or both, if relevant).</li>
+    </ul>
+
+    <h2>Suggested report sections</h2>
+    <p>The following is a <strong>suggested</strong> way to organize the report. Adapt headings to match your project as long as the story stays clear.</p>
+    <p>Before the main body, include a <strong>title page</strong> (title, team or author, course) and an <strong>executive summary</strong> or <strong>abstract</strong>: a short opening summary (often one paragraph) stating what you did, the main takeaway, and—when you have code—the <strong>URL of your GitHub (or equivalent) repository</strong> so readers can find your project immediately. After the final main section, add <strong>references</strong>. Use <strong>appendices</strong> for extra material that would clutter the main text.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Suggested section</th>
+          <th>What to include</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Introduction</strong></td>
+          <td>
+            Why the topic matters; <strong>problem</strong> and who it serves; <strong>market or context</strong> (audience, trends). Plain-language <strong>what the project does</strong> (inputs, outputs, user journey). Your <strong>generative AI angle</strong>: models, modalities, agents — why gen AI fits. Relevant <strong>limitations of the status quo</strong> (cost, trust, moderation, APIs). <strong>Ethics, risk, and governance</strong> (disclosure, ToS, misuse)—at least a brief treatment here or in Results and Analysis.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2. Implementation</strong></td>
+          <td>
+            <strong>System description</strong>: major components of the app or analysis pipeline; diagrams welcome. <strong>Stack and integration</strong>: framework (e.g. Python, web), AI models and APIs, how configuration and secrets are handled (never put API keys in the PDF). <strong>Agentic flow</strong> for projects that use agents, tools, or multi-step LLM flows—diagram plus short narrative; if you did not use that pattern, say so in a sentence. <strong>Repository</strong>: link to GitHub (or equivalent), how to run and reproduce a demo.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3. Results and Analysis</strong></td>
+          <td>
+            <strong>Evidence</strong>: screenshots, sample outputs, or (for dataset work) key figures — caption each. <strong>What works and what does not</strong>: honest critique of brittle or “AI-sloppy” behavior. <strong>Informal testing</strong> when you gathered user feedback. <strong>Economics</strong>: rough operating costs (API, hosting); pricing idea if you would sell the service. <strong>Competitive landscape</strong>: a small set of comps (similar tools or papers) and how you differ. Deeper <strong>analysis</strong> of results belongs here, not only in Conclusion.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>4. Conclusion</strong></td>
+          <td>
+            Summarize <strong>main findings</strong> and lessons. <strong>Extensions and roadmap</strong>: next steps; how better AI in the next 12–24 months could change the product; what you would need (data, evaluation, safety). Tie back to the Introduction’s problem. End with a dedicated <strong>References</strong> section (before any appendices).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Dataset-focused projects</h2>
+    <p>If you analyze a social media dataset rather than ship an app, you can follow the <strong>same four-part flow</strong>. Put <strong>data pipeline and methods</strong> in <strong>Implementation</strong>; put <strong>figures</strong> (distributions, networks, topic models, gen-AI-assisted labeling workflows, etc.) and interpretation in <strong>Results and Analysis</strong> instead of app screenshots.</p>
+
+    <h2>Final presentation</h2>
+    <p>Your slides should tell the <strong>same story in about 10–15 minutes</strong>: problem → demo or key result → how AI is used → one honest limitation → what’s next. Do not paste the full report; <strong>one strong demo slide</strong> beats ten bullet walls.</p>
+
+    <h2>Formatting tips</h2>
+    <ul>
+      <li>Include the <strong>GitHub (or equivalent) repo URL</strong> in the <strong>executive summary or abstract</strong> so it is visible on the first page of the narrative.</li>
+      <li>Number figures and tables and refer to them in the text (for example, “Figure 3 shows …”).</li>
+      <li>Cite sources and tools in a consistent reference list at the end.</li>
+    </ul>
+  </div>
+</body>
+</html>

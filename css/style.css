@@ -1,3 +1,8 @@
+:root {
+  /* Used so the instructions sidebar sticks below the pinned nav */
+  --nav-sticky-offset: 52px;
+}
+
 body {
   background-color: #0f0f23;
   color: #33ffcc;  /* ← was #ff66cc */
@@ -10,9 +15,14 @@ body {
 
 
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background-color: #1a1a2e;
   padding: 10px;
   width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
 .navbar {
@@ -88,9 +98,10 @@ img:hover {
   background-color: #1a1a2e;
   padding: 20px;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: var(--nav-sticky-offset);
+  height: calc(100vh - var(--nav-sticky-offset));
   overflow-y: auto;
+  z-index: 100;
 }
 
 .sidebar a {
