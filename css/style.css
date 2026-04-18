@@ -1,26 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 :root {
   /* Used so the instructions sidebar sticks below the pinned nav */
   --nav-sticky-offset: 52px;
+  --font-body: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Segoe UI Mono', monospace;
 }
 
 body {
   background-color: #0f0f23;
   color: #33ffcc;  /* ← was #ff66cc */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.6;
   margin: 0;
   padding: 0;
 }
 
+.site-footer {
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.25rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 102, 204, 0.22);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(232, 234, 237, 0.55);
+}
+
 
 nav {
   position: sticky;
   top: 0;
+  margin-left: auto;
   z-index: 1000;
   background-color: #1a1a2e;
-  padding: 10px;
-  width: 100%;
+  padding: 10px 14px;
+  width: fit-content;
+  max-width: 100%;
   box-sizing: border-box;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
@@ -28,7 +47,10 @@ nav {
 .navbar {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px 22px;
   margin: 0;
   padding: 0;
 }
@@ -36,19 +58,16 @@ nav {
 .navbar li a {
   text-decoration: none;
   color: #33ffcc;  /* ← was #ff66cc */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
   font-weight: bold;
-  transition: all 0.3s ease;
-  text-shadow: 0 0 4px #33ffcc;  /* subtle teal glow */
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 
 .navbar li a:hover {
   color: #ffffff;
-  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff1ab3, 0 0 30px #ff1ab3;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 main {
@@ -56,19 +75,71 @@ main {
   text-align: center;
 }
 
+/* Home landing: title left, art right, copy below */
+main.home {
+  padding: 0;
+  text-align: left;
+}
+
+.home-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem 2.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2.5rem 40px 3rem;
+  box-sizing: border-box;
+}
+
+.home-hero-intro {
+  flex: 1 1 18rem;
+  text-align: left;
+}
+
+.home-hero-intro h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.85rem, 3.2vw + 1.1rem, 2.85rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: #e8eaed;
+}
+
+.home-hero-art {
+  flex: 1 1 22rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: min(36rem, 100%);
+}
+
+.home-hero-art img {
+  width: 100%;
+  max-width: 32rem;
+  margin-bottom: 0;
+  display: block;
+}
+
+.home-hero-intro p:last-of-type {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .home-hero {
+    padding-top: 1.5rem;
+  }
+}
+
 h1, h2 {
   color: #33ffcc;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff1ab3;
 }
 
 h3 {
   color: #ff66cc;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
-  text-shadow: 0 0 4px #ff66cc;
   margin: 1.25rem 0 0.5rem;
 }
 
@@ -115,7 +186,6 @@ main.main-narrow > .page-subtitle {
   background-color: #1a1a2e;
   color: #ff66cc;
   font-weight: bold;
-  text-shadow: 0 0 4px #ff66cc;
 }
 
 .report-sections-table td strong {
@@ -153,13 +223,17 @@ img:hover {
 }
 
 .sidebar {
+  box-sizing: border-box;
+  flex: 0 0 200px;
   width: 200px;
+  min-width: 180px;
   background-color: #1a1a2e;
   padding: 20px;
   position: sticky;
   top: var(--nav-sticky-offset);
   height: calc(100vh - var(--nav-sticky-offset));
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 100;
 }
 
@@ -167,18 +241,16 @@ img:hover {
   display: block;
   color: #ff66cc;
   padding: 10px 0;
+  overflow-wrap: break-word;
   text-decoration: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
   font-weight: bold;
-  transition: all 0.2s ease;
-  text-shadow: 0 0 3px #ff66cc;
+  transition: color 0.2s ease;
 }
 
 .sidebar a:hover {
   color: #ffffff;
-  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff1ab3;
 }
 
 .content {
@@ -201,7 +273,7 @@ img:hover {
 .accordion-btn {
   background-color: transparent;
   color: #ff66cc;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: inherit;
   padding: 15px;
   text-align: left;
   width: 100%;
@@ -210,13 +282,11 @@ img:hover {
   font-size: 18px;
   line-height: 1.6;
   cursor: pointer;
-  text-shadow: 0 0 4px #ff66cc;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .accordion-btn:hover {
   background-color: #2c2c3e;
-  text-shadow: 0 0 8px #ff1ab3;
 }
 
 .panel {
@@ -272,13 +342,12 @@ img:hover {
 }
 
 table, th, td {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
 }
 
 code {
-  font-family: Consolas, Monaco, 'Courier New', monospace;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   background-color: #1a1a2e;
@@ -305,13 +374,11 @@ pre.terminal code {
 }
 
 a {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
 }
 
 ol {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
 }
