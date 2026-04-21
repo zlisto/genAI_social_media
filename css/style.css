@@ -162,6 +162,23 @@ main.main-narrow > .page-subtitle {
   margin: 0 0 1.75rem;
 }
 
+/* Final project page: link to presentation schedule */
+.final-schedule-cta {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.final-schedule-cta p {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+  line-height: 1.45;
+}
+
+.final-schedule-cta a {
+  font-size: inherit;
+  font-weight: 700;
+}
+
 .assignment-box strong {
   color: #ff66cc;
 }
